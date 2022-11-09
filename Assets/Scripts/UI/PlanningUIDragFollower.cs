@@ -9,7 +9,7 @@ public class PlanningUIDragFollower : MonoBehaviour
 
     [SerializeField] PlanningUIModuleSlot moduleSlot;
 
-    void Start()
+    void Awake()
     {
         canvas = transform.root.GetComponent<Canvas>();
         mainCam = Camera.main;
@@ -19,7 +19,7 @@ public class PlanningUIDragFollower : MonoBehaviour
 
 
     public void Set(Module module) {
-        moduleSlot.Initialize(module);
+        moduleSlot.Set(module);
     }
 
 

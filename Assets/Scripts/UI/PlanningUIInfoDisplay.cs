@@ -17,7 +17,7 @@ public class PlanningUIInfoDisplay : MonoBehaviour
     public TextMeshProUGUI specialEffect;
 
     void Start() {
-        Reset();
+        ResetDisplay();
     }
 
     public void DisplayModule(Module module) {
@@ -39,7 +39,7 @@ public class PlanningUIInfoDisplay : MonoBehaviour
         specialEffect.text = module.moduleData.specialEffect;
     }
 
-    public void Reset() {
+    public void ResetDisplay() {
         module = null;
 
         icon.gameObject.SetActive(false);

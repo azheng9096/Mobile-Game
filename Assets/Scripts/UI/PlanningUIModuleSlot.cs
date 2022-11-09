@@ -19,11 +19,11 @@ public class PlanningUIModuleSlot : MonoBehaviour, IPointerClickHandler, IBeginD
 
     bool draggable = true;
 
-    public void Initialize(Module newModule) {
+    public void Set(Module newModule) {
         module = newModule;
 
         icon.sprite = module.moduleData.sprite;
-        text.gameObject.SetActive(false); // placeholder for now
+        text.text = ""; // placeholder for now
     }
 
     public void OnPointerClick(PointerEventData eventData) {
