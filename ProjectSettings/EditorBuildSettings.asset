@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demo2.unity
     guid: 7c19354b93f044981b27957e546c489e
+  - enabled: 1
+    path: Assets/Scenes/Taneim_dev.unity
+    guid: f821d3228a2007945b7ab6bb3b132f75
   m_configObjects: {}
