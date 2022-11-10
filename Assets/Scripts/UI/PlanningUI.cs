@@ -9,14 +9,17 @@ public class PlanningUI : MonoBehaviour
 
     [SerializeField] Transform SelectionSlots;
 
+    [SerializeField] PlanningUIClearSelection ClearSelection;
+
     [SerializeField] PlanningUIDragFollower dragFollower;
     Module currentlyDraggedModule = null;
+
 
     [SerializeField] PlanningUIInfoDisplay InfoDisplay;
 
 
     Dictionary<Module, PlanningUIModuleSlot> moduleSlotsCurrentState = new Dictionary<Module, PlanningUIModuleSlot>();
-    List<Module> selection = new List<Module>();
+    Dictionary<Module, PlanningUISelectionSlot> selectionCurrentState = new Dictionary<Module, PlanningUISelectionSlot>();
 
     void Start() {
         dragFollower.Toggle(false);
@@ -31,6 +34,9 @@ public class PlanningUI : MonoBehaviour
             slot.OnModuleEndDrag += HandleEndDrag;
             slot.OnModuleDrop += HandleModuleDrop;
         }
+
+        // Initialize Clear Selection
+        ClearSelection.OnModuleDrop += HandleModuleDrop;
     }
 
     public void ListModules() {
@@ -58,11 +64,11 @@ public class PlanningUI : MonoBehaviour
 
     // Update module slots (enable/disable) when selections changes
     void UpdateSelections() {
-        selection.Clear();
+        selectionCurrentState.Clear();
         foreach (Transform child in SelectionSlots) {
             PlanningUISelectionSlot slot = child.gameObject.GetComponent<PlanningUISelectionSlot>();
             if (slot.module != null) {
-                selection.Add(slot.module);
+                selectionCurrentState.Add(slot.module, slot);
             }
         }
 
@@ -90,7 +96,7 @@ public class PlanningUI : MonoBehaviour
                 continue;
             }
 
-            if (selection.Contains(module)) {
+            if (selectionCurrentState.ContainsKey(module)) {
                 slot.Disable("Selected");
                 continue;
             }
@@ -137,12 +143,16 @@ public class PlanningUI : MonoBehaviour
         InfoDisplay.DisplayModule(selectionSlot.module);
         dragFollower.Toggle(true);
         dragFollower.Set(selectionSlot.module);
+
+        ClearSelection.Toggle(true);
     }
 
     // Handle End Drag
     void HandleEndDrag(PlanningUISelectionSlot selectionSlot) {
         dragFollower.Toggle(false);
         currentlyDraggedModule = null;
+
+        ClearSelection.Toggle(false);
     }
 
     // Handle On Drop
@@ -151,14 +161,43 @@ public class PlanningUI : MonoBehaviour
             return;
         }
 
-        if (selectionSlot.IsEmpty()) {
-            selectionSlot.Set(currentlyDraggedModule);
-            UpdateSelections();
+        // TODO: need to handle swapping if needed
+        // Handle: 
+            // Modules -> Empty Selection
+            // Modules -> Existing Selection
+            // Selection -> Empty Selection
+            // Selection -> Existing Selection
+
+        if (selectionCurrentState.ContainsKey(currentlyDraggedModule)) {
+            // Selection -> Empty Selection
+            if (selectionSlot.IsEmpty()) {
+                selectionCurrentState[currentlyDraggedModule].ResetSlot(); // empty slot the module was previously in
+            }
+
+            // Selection -> Existing Selection
+            else {
+                selectionCurrentState[currentlyDraggedModule].Set(selectionSlot.module); 
+            }
+
         }
 
-        // TODO: need to handle swapping if needed
+        selectionSlot.Set(currentlyDraggedModule);
+        UpdateSelections();
 
-        dragFollower.Toggle(false);
-        currentlyDraggedModule = null;
+        // Below handled by HandleEndDrag()
+        // dragFollower.Toggle(false);
+        // currentlyDraggedModule = null;
+    }
+
+
+    // --- CLEAR SELECTION ---
+    void HandleModuleDrop(PlanningUIClearSelection clearSelection) {
+        if (selectionCurrentState[currentlyDraggedModule] == null) {
+            Debug.LogError("Module not in selection slot");
+            return;
+        }
+
+        selectionCurrentState[currentlyDraggedModule].ResetSlot();
+        UpdateSelections();
     }
 }
