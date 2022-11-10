@@ -26,6 +26,15 @@ public class DeckManager : MonoBehaviour
         deck.Remove(module);
     }
 
+    public void ToggleModuleAvailability(Module module, bool val) {
+        if (deck.IndexOf(module) == -1) {
+            Debug.Log("Cannot toggle availability of a module not in deck");
+            return;
+        }
+
+        module.planningAvailable = val;
+    }
+
     void Update() {
     }
 }

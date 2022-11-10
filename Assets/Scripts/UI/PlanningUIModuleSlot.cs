@@ -11,19 +11,42 @@ public class PlanningUIModuleSlot : MonoBehaviour, IPointerClickHandler, IBeginD
 {
     [SerializeField] Image icon;
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] GameObject disable;
+    [SerializeField] TextMeshProUGUI disableText;
 
     [HideInInspector] public Module module;
 
 
     public event Action<PlanningUIModuleSlot> OnModuleClicked, OnModuleBeginDrag, OnModuleEndDrag;
 
+    Image raycastImage;
     bool draggable = true;
+
+    void Start() {
+        raycastImage = gameObject.GetComponent<Image>();
+    }
 
     public void Set(Module newModule) {
         module = newModule;
 
         icon.sprite = module.moduleData.sprite;
         text.text = ""; // placeholder for now
+
+        if (!module.planningAvailable) {
+            draggable = false;
+            Disable("Unavailable");
+        }
+    }
+
+    public void Disable(string message = "Disabled") {
+        draggable = false;
+        disable.SetActive(true);
+        disableText.text = message;
+    }
+
+    public void Enable() {
+        draggable = true;
+        disable.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData) {
@@ -31,6 +54,7 @@ public class PlanningUIModuleSlot : MonoBehaviour, IPointerClickHandler, IBeginD
             OnModuleClicked?.Invoke(this);
         }
     }
+
 
     public void OnBeginDrag(PointerEventData eventData) {
         if (!draggable) {

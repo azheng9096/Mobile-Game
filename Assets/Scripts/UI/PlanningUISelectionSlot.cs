@@ -7,7 +7,7 @@ using TMPro;
 using System;
 using UnityEngine.EventSystems;
 
-public class PlanningUISelectionSlot : MonoBehaviour, IDropHandler
+public class PlanningUISelectionSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
     [SerializeField] Image icon;
     [SerializeField] TextMeshProUGUI text;
@@ -16,8 +16,8 @@ public class PlanningUISelectionSlot : MonoBehaviour, IDropHandler
 
     [SerializeField] Sprite defaultSprite;
 
-    // bool empty = true;
-    public event Action<PlanningUISelectionSlot> OnModuleDrop;
+    bool empty = true;
+    public event Action<PlanningUISelectionSlot> OnModuleClicked, OnModuleBeginDrag, OnModuleEndDrag, OnModuleDrop;
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +32,16 @@ public class PlanningUISelectionSlot : MonoBehaviour, IDropHandler
     }
 
     public void Set(Module module) {
+        if (module == null) {
+            ResetSlot();
+            return;
+        }
+
         this.module = module;
 
         icon.sprite = module.moduleData.sprite;
         text.text = ""; // placeholder for now
+        empty = false;
     }
     
     public void ResetSlot() {
@@ -43,6 +49,37 @@ public class PlanningUISelectionSlot : MonoBehaviour, IDropHandler
 
         icon.sprite = defaultSprite;
         text.text = "";
+        empty = true;
+    }
+
+    public bool IsEmpty() {
+        return empty;
+    }
+
+    public void OnPointerClick(PointerEventData eventData) {
+        if (empty) {
+            return;
+        }
+
+        if (eventData.pointerId == 0) {
+            OnModuleClicked?.Invoke(this);
+        }
+    }
+
+    public void OnBeginDrag(PointerEventData eventData) {
+        if (empty) {
+            return;
+        }
+        OnModuleBeginDrag?.Invoke(this);
+    }
+
+    public void OnEndDrag(PointerEventData eventData) {
+        OnModuleEndDrag?.Invoke(this);
+    }
+
+    public void OnDrag(PointerEventData eventData) {
+        // needed for OnBeginDrag() and OnEndDrag() to work
+        // no implementation needed
     }
 
     public void OnDrop(PointerEventData eventData) {
