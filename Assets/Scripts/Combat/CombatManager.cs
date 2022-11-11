@@ -102,10 +102,14 @@ public class CombatManager : MonoBehaviour
         foreach (GameObject icon in moduleIcons) {
             Destroy(icon);
         }
+        int i = 0;
         foreach (Module module in modules) {
+            i++;
             GameObject obj = Instantiate(modIconPrefab, modIconParent);
+            obj.GetComponent<Image>().sprite = modules[i-1].moduleData.sprite;
             moduleIcons.Add(obj);
         }
+        
     }
     public void DashCallback() {
         dashButton.interactable = true;

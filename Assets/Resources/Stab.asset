@@ -18,4 +18,5 @@ MonoBehaviour:
   type: 0
   damage: 10
   accuracy: 90
+  cooldown: 0
   specialEffect: 
