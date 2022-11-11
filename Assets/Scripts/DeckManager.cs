@@ -9,6 +9,9 @@ public class DeckManager : MonoBehaviour
     public List<Module> deck = new List<Module>();
     // List<Module> selected = new List<Module>();
 
+    public delegate void OnDeckChanged();
+    public OnDeckChanged DeckChangedCallback;
+
     void Awake() {
         if (instance != null) {
             Debug.Log("An instance of DeckManager already exists");
@@ -20,10 +23,14 @@ public class DeckManager : MonoBehaviour
 
     public void AddModule(ModuleData moduleData) {
         deck.Add(new Module(moduleData));
+
+        DeckChangedCallback.Invoke();
     }
 
     public void RemoveModule(Module module) {
         deck.Remove(module);
+
+        DeckChangedCallback.Invoke();
     }
 
     public void ToggleModuleAvailability(Module module, bool val) {
@@ -33,6 +40,7 @@ public class DeckManager : MonoBehaviour
         }
 
         module.planningAvailable = val;
+        DeckChangedCallback.Invoke();
     }
 
     void Update() {

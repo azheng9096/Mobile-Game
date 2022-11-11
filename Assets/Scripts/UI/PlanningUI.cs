@@ -22,7 +22,8 @@ public class PlanningUI : MonoBehaviour
     Dictionary<Module, PlanningUISelectionSlot> selectionCurrentState = new Dictionary<Module, PlanningUISelectionSlot>();
 
     void Start() {
-        dragFollower.Toggle(false);
+        // Initialize Listener
+        DeckManager.instance.DeckChangedCallback += ListModules;
 
         // Initialize Selection Slots
         foreach (Transform child in SelectionSlots) {
