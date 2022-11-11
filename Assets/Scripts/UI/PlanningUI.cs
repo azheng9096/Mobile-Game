@@ -192,6 +192,7 @@ public class PlanningUI : MonoBehaviour
 
 
     // --- CLEAR SELECTION ---
+    // Handle Module Drop
     void HandleModuleDrop(PlanningUIClearSelection clearSelection) {
         if (selectionCurrentState[currentlyDraggedModule] == null) {
             Debug.LogError("Module not in selection slot");
@@ -200,5 +201,12 @@ public class PlanningUI : MonoBehaviour
 
         selectionCurrentState[currentlyDraggedModule].ResetSlot();
         UpdateSelections();
+    }
+
+
+    // --- START BUTTON ---
+    // Handle On Click
+    public void OnStartClick() {
+        Debug.Log("Starting Battle");
     }
 }

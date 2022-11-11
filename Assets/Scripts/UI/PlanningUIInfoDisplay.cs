@@ -14,6 +14,7 @@ public class PlanningUIInfoDisplay : MonoBehaviour
     public TextMeshProUGUI descriptor;
     public TextMeshProUGUI dmg;
     public TextMeshProUGUI acc;
+    public TextMeshProUGUI cd;
     public TextMeshProUGUI specialEffect;
 
     void Start() {
@@ -35,6 +36,7 @@ public class PlanningUIInfoDisplay : MonoBehaviour
 
         dmg.text = (module.moduleData.damage).ToString();
         acc.text = (module.moduleData.accuracy).ToString();
+        cd.text = (module.moduleData.cooldown).ToString();
         
         specialEffect.text = module.moduleData.specialEffect;
     }
@@ -50,6 +52,7 @@ public class PlanningUIInfoDisplay : MonoBehaviour
 
         dmg.text = "--";
         acc.text = "--";
+        cd.text = "--";
 
         specialEffect.text = "Module special effect description";
     }

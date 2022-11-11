@@ -12,6 +12,7 @@ public class ModuleData : ScriptableObject
     public ModuleType type;
     public int damage;
     public int accuracy;
+    public float cooldown;
     public string specialEffect;
 
     public string GetModuleType() {
