@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlanningUIDragFollower : MonoBehaviour
 {
-    [SerializeField] Canvas canvas;
-    [SerializeField] Camera mainCam;
+    Canvas canvas;
+    Camera mainCam;
 
-    [SerializeField] PlanningUIModuleSlot moduleSlot;
+    PlanningUIModuleSlot moduleSlot;
 
     void Awake()
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlanningUI : MonoBehaviour
 {
+    [SerializeField] GameObject planningUI;
+
     [SerializeField] Transform ModuleSlots;
     [SerializeField] GameObject ModuleSlotPrefab;
 
@@ -18,8 +20,20 @@ public class PlanningUI : MonoBehaviour
     [SerializeField] PlanningUIInfoDisplay InfoDisplay;
 
 
+    [SerializeField] CombatManager combatManager;
+
+
     Dictionary<Module, PlanningUIModuleSlot> moduleSlotsCurrentState = new Dictionary<Module, PlanningUIModuleSlot>();
     Dictionary<Module, PlanningUISelectionSlot> selectionCurrentState = new Dictionary<Module, PlanningUISelectionSlot>();
+
+    void Awake() {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    void Destroy() {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+        DeckManager.instance.DeckChangedCallback -= ListModules;
+    }
 
     void Start() {
         // Initialize Listener
@@ -60,11 +74,11 @@ public class PlanningUI : MonoBehaviour
             moduleSlotsCurrentState.Add(module, slot);
         }
 
-        UpdateSelections();
+        UpdateModuleSlots();
     }
 
     // Update module slots (enable/disable) when selections changes
-    void UpdateSelections() {
+    void UpdateModuleSlots() {
         selectionCurrentState.Clear();
         foreach (Transform child in SelectionSlots) {
             PlanningUISelectionSlot slot = child.gameObject.GetComponent<PlanningUISelectionSlot>();
@@ -183,7 +197,7 @@ public class PlanningUI : MonoBehaviour
         }
 
         selectionSlot.Set(currentlyDraggedModule);
-        UpdateSelections();
+        UpdateModuleSlots();
 
         // Below handled by HandleEndDrag()
         // dragFollower.Toggle(false);
@@ -200,13 +214,66 @@ public class PlanningUI : MonoBehaviour
         }
 
         selectionCurrentState[currentlyDraggedModule].ResetSlot();
-        UpdateSelections();
+        UpdateModuleSlots();
     }
 
 
     // --- START BUTTON ---
     // Handle On Click
     public void OnStartClick() {
+        // UpdateModuleSlots just in case
+        UpdateModuleSlots();
+
+        // Set selection modules
+        SetSelection();
+
+        // Start combat 
+        combatManager.StartCombat();
         Debug.Log("Starting Battle");
+
+        // Disable planning UI
+        planningUI.SetActive(false);
     }
+
+    void SetSelection() {
+        // Set modules in CombatManager
+        combatManager.modules = new List<Module>(selectionCurrentState.Keys);
+
+        Debug.Log(combatManager.modules.Count);
+        for (int i = 0; i < combatManager.modules.Count; i++) {
+            Debug.Log(combatManager.modules[i]);
+        }
+
+        // Disable selected modules for future rounds of planning
+        foreach(Module module in combatManager.modules) {
+            DeckManager.instance.ToggleModuleAvailability(module, false);
+        }
+
+        // Clear selections
+        ClearAllSelectionSlots();
+
+        // Update slots
+        ListModules();
+    }
+
+    void ClearAllSelectionSlots() {
+        foreach (Transform child in SelectionSlots) {
+            PlanningUISelectionSlot slot = child.gameObject.GetComponent<PlanningUISelectionSlot>();
+            slot.ResetSlot();
+        }
+
+        UpdateModuleSlots();
+    }
+
+
+    // --- SWITCHING TO PLANNING PHASE ---
+    void OnGameStateChanged(GameState newState) {
+        if (newState == GameState.Planning && GameStateManager.Instance.PreviousGameState == GameState.Combat) {
+            planningUI.SetActive(true);
+            ListModules();
+        }
+    }
+
+
+    // --- OTHERS ---
 }

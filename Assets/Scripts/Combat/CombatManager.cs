@@ -90,10 +90,15 @@ public class CombatManager : MonoBehaviour
                 GameStateManager.Instance.SetState(GameState.Paused);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.P)) {
+            EndCombat();
+        }
     }
 
     void OnGameStateChanged(GameState newState) {
         if (newState == GameState.Combat && GameStateManager.Instance.PreviousGameState == GameState.Planning) {
+            HUDGroup.SetActive(true);
             ListModules();
         }
     }
@@ -102,8 +107,13 @@ public class CombatManager : MonoBehaviour
         foreach (GameObject icon in moduleIcons) {
             Destroy(icon);
         }
+
         foreach (Module module in modules) {
             GameObject obj = Instantiate(modIconPrefab, modIconParent);
+
+            // set module prefab
+            modIconPrefab.GetComponent<Image>().sprite = module.moduleData.sprite;
+
             moduleIcons.Add(obj);
         }
     }
@@ -150,5 +160,15 @@ public class CombatManager : MonoBehaviour
         dashButton.interactable = false;
         useModuleButton.interactable = false;
         GameStateManager.Instance.SetState(GameState.Planning);
+    }
+
+    public void StartCombat() {
+        Debug.Log("Start combat");
+        dashButton.interactable = true;
+        useModuleButton.interactable = true;
+        GameStateManager.Instance.SetState(GameState.Combat);
+
+        // have to list modules here as well as in OnGameStateChanged -- or else icon for last module does not load for some reason
+        ListModules();
     }
 }

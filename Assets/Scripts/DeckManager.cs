@@ -7,7 +7,6 @@ public class DeckManager : MonoBehaviour
     public static DeckManager instance;
 
     public List<Module> deck = new List<Module>();
-    // List<Module> selected = new List<Module>();
 
     public delegate void OnDeckChanged();
     public OnDeckChanged DeckChangedCallback;
