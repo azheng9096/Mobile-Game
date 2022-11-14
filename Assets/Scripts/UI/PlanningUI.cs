@@ -52,6 +52,9 @@ public class PlanningUI : MonoBehaviour
 
         // Initialize Clear Selection
         ClearSelection.OnModuleDrop += HandleModuleDrop;
+
+        // Initialize Active State
+        planningUI.SetActive(GameStateManager.Instance.CurrentGameState == GameState.Planning);
     }
 
     public void ListModules() {
