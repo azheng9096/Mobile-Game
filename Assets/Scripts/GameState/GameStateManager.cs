@@ -16,7 +16,7 @@ public class GameStateManager
         }
     }
  
-    public GameState CurrentGameState { get; private set; } = GameState.Planning;
+    public GameState CurrentGameState { get; private set; } = GameState.Combat;
     public GameState PreviousGameState { get; private set; } = GameState.Combat;
     public delegate void GameStateChangeHandler(GameState newGameState);
     public event GameStateChangeHandler OnGameStateChanged;
