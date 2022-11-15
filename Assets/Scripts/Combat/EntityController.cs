@@ -119,8 +119,8 @@ public class EntityController : MonoBehaviour
     }
     IEnumerator Die() {
         print("Oh no I'm dying");
-        yield return new WaitForSeconds(1f);
         UpdateEntityStatus();
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 

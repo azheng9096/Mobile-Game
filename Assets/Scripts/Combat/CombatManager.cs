@@ -225,8 +225,9 @@ public class CombatManager : MonoBehaviour
         } else if (controller == enemy) {
             workingEntities -= 1;
             if (status == EntityStatus.Dead) {
+                enemy.status = EntityStatus.Dead;
                 print("You win, they're dead");
-                StartCoroutine(EndCutscene());
+                
             }
         }
         if (workingEntities == 0) {
@@ -247,11 +248,22 @@ public class CombatManager : MonoBehaviour
     }
 
     void EndCombat() {
-        print("End combat");
-        //hide the two buttons
-        dashButton.interactable = false;
-        useModuleButton.interactable = false;
-        GameStateManager.Instance.SetState(GameState.Planning);
+        if (enemy != null && enemy.status != EntityStatus.Dead)
+        {
+            print("End combat");
+            //hide the two buttons
+            dashButton.interactable = false;
+            useModuleButton.interactable = false;
+            GameStateManager.Instance.SetState(GameState.Planning);
+        } else
+        {
+            print("Endscene!");
+            //hide the two buttons
+            dashButton.interactable = false;
+            useModuleButton.interactable = false;
+            StartCoroutine(EndCutscene());
+        }
+        
     }
 
     public void StartCombat() {
