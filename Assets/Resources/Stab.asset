@@ -17,6 +17,6 @@ MonoBehaviour:
   descriptor: Stabby stabby
   type: 0
   damage: 10
-  accuracy: 90
-  cooldown: 0
+  accuracy: 75
+  cooldown: 1
   specialEffect: 

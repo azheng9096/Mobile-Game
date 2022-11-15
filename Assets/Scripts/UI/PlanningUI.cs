@@ -240,8 +240,9 @@ public class PlanningUI : MonoBehaviour
 
     void SetSelection() {
         // Set modules in CombatManager
+        combatManager.modules.Clear();
         combatManager.modules = new List<Module>(selectionCurrentState.Keys);
-
+        combatManager.modules.Reverse();
         Debug.Log(combatManager.modules.Count);
         for (int i = 0; i < combatManager.modules.Count; i++) {
             Debug.Log(combatManager.modules[i]);
@@ -271,7 +272,10 @@ public class PlanningUI : MonoBehaviour
 
     // --- SWITCHING TO PLANNING PHASE ---
     void OnGameStateChanged(GameState newState) {
-        if (newState == GameState.Planning && GameStateManager.Instance.PreviousGameState == GameState.Combat) {
+        if (newState == GameState.Planning
+            /*&& GameStateManager.Instance.PreviousGameState == GameState.Combat*/
+            )
+        {
             planningUI.SetActive(true);
             ListModules();
         }

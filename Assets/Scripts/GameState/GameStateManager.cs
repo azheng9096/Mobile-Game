@@ -15,9 +15,9 @@ public class GameStateManager
             return _instance;
         }
     }
- 
-    public GameState CurrentGameState { get; private set; } = GameState.Combat;
-    public GameState PreviousGameState { get; private set; } = GameState.Combat;
+
+    public GameState CurrentGameState { get; private set; } = GameState.Cutscene;
+    public GameState PreviousGameState { get; private set; } = GameState.Cutscene;
     public delegate void GameStateChangeHandler(GameState newGameState);
     public event GameStateChangeHandler OnGameStateChanged;
  

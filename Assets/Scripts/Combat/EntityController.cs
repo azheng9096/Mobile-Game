@@ -16,8 +16,9 @@ public class EntityController : MonoBehaviour
     [SerializeField] Slider healthBar;
     CombatManager combatManager;
     List<Module> modules;
-
-    EntityStatus status;
+    [SerializeField]
+    public List<ModuleData> attackPattern;
+    public EntityStatus status;
     bool dashing = false;
     public void Init(CombatManager combatManager, List<Module> modules, float maxHealth = 100f, float health = 100f) {
         this.combatManager = combatManager;
@@ -27,6 +28,19 @@ public class EntityController : MonoBehaviour
         healthBar.gameObject.SetActive(true);
         if (modules.Count == 0) {
             combatManager.UpdateStatus(this, EntityStatus.Empty);
+        }
+    }
+
+    public void nextModules(List<Module> modules)
+    {
+        this.modules = modules;
+        if (modules.Count == 0)
+        {
+            print("next modules empty");
+            combatManager.UpdateStatus(this, EntityStatus.Empty);
+        } else
+        {
+            status = EntityStatus.Idle;
         }
     }
 
@@ -56,14 +70,26 @@ public class EntityController : MonoBehaviour
         print("Module used");
         print(modules.Count);
         Module mod = modules[modules.Count - 1];
+        StartCoroutine(combatManager.cardCooldown(this, mod));
         modules.RemoveAt(modules.Count - 1);
         if (mod.moduleData.type == ModuleType.Attack) {
-            target.TakeDamage(mod.moduleData.damage);
+            float r = Random.Range(0f, 100f);
+            if (r <= mod.moduleData.accuracy && this == combatManager.player)
+            {
+                target.TakeDamage(mod.moduleData.damage);
+                //show target dodge animation
+            } else if(target == combatManager.player)
+            {
+                target.TakeDamage(mod.moduleData.damage);
+            }
         }
         print(modules.Count);
-        if (modules.Count == 0) {
-            combatManager.UpdateStatus(this, EntityStatus.Empty);
+        if (modules.Count == 0 ) {
+            if(this == combatManager.player)
+                combatManager.UpdateStatus(this, EntityStatus.Empty);
+            status = EntityStatus.Empty;
         }
+        
     }
 
     void TakeDamage(float damage) {

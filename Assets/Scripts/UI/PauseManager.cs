@@ -94,7 +94,12 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
-
+    public void restartGame()
+    {
+        Time.timeScale = 1f;
+        //maybe add a sort of transition animation
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     public void quitGame()
     {
         Time.timeScale = 1f;
