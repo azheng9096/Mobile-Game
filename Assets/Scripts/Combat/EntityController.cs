@@ -20,7 +20,14 @@ public class EntityController : MonoBehaviour
     public List<ModuleData> attackPattern;
     public EntityStatus status;
     bool dashing = false;
+    bool blocking = false;
+    bool hitInterrupt = false;
+    [SerializeField] float animDelayMult = 1.0f; 
+    [SerializeField] Animator animator;
     public void Init(CombatManager combatManager, List<Module> modules, float maxHealth = 100f, float health = 100f) {
+        if (animator != null) {
+            animator.SetBool("Dead", false);
+        }
         this.combatManager = combatManager;
         this.modules = modules;
         healthBar.maxValue = maxHealth;
@@ -72,35 +79,73 @@ public class EntityController : MonoBehaviour
         Module mod = modules[modules.Count - 1];
         StartCoroutine(combatManager.cardCooldown(this, mod));
         modules.RemoveAt(modules.Count - 1);
-        if (mod.moduleData.type == ModuleType.Attack) {
-            float r = Random.Range(0f, 100f);
-            if (r <= mod.moduleData.accuracy && this == combatManager.player)
-            {
-                target.TakeDamage(mod.moduleData.damage);
-                //show target dodge animation
-            } else if(target == combatManager.player)
-            {
-                target.TakeDamage(mod.moduleData.damage);
+        StartCoroutine(UseModule_Routine(mod, target));
+        print(modules.Count);
+    }
+
+    IEnumerator UseModule_Routine(Module mod, EntityController target) {
+        if (mod.moduleData.type == ModuleType.Shoot || mod.moduleData.type == ModuleType.Melee) {
+            hitInterrupt = false;
+            if (animator != null) {
+                animator.SetTrigger(mod.moduleData.GetModuleType());
+            }
+            yield return new WaitForSeconds(mod.moduleData.animDelay * animDelayMult);
+            if (!hitInterrupt) { //If the enemy attacked in between the animation activating then the mod was interrupted
+                float r = Random.Range(0f, 100f);
+                if (r <= mod.moduleData.accuracy && this == combatManager.player)
+                {
+                    target.TakeDamage(mod.moduleData.damage);
+                    //show target dodge animation
+                } else if(target == combatManager.player)
+                {
+                    target.TakeDamage(mod.moduleData.damage);
+                }
+            }
+            
+        } else if (mod.moduleData.type == ModuleType.Support) {
+            if (mod.moduleData.specialEffect == "block") {
+                if (animator != null) {
+                    animator.SetBool("Blocking", true);
+                }
+                blocking = true;
+                yield return new WaitForSeconds(1.5f);
+                blocking = false;
+                if (animator != null) {
+                    animator.SetBool("Blocking", false);
+                }
             }
         }
-        print(modules.Count);
         if (modules.Count == 0 ) {
             if(this == combatManager.player)
                 combatManager.UpdateStatus(this, EntityStatus.Empty);
             status = EntityStatus.Empty;
         }
-        
     }
 
     void TakeDamage(float damage) {
         if (dashing) {
             print("dodged");
-        } else {
-            healthBar.value -= damage;
-            if (healthBar.value <= 0) {
-                StartCoroutine(Die());
+        } else if (blocking) {
+            print("blocked");
+            blocking = false;
+            if (animator != null) {
+                animator.SetBool("Blocking", false);
             }
+        } else {
+            StartCoroutine(TakeDamage_Routine(damage));
         }
+    }
+
+    IEnumerator TakeDamage_Routine(float damage) {
+        hitInterrupt = true;
+        if (animator != null) {
+            animator.SetTrigger("Hurt");
+        }
+        healthBar.value -= damage;
+        if (healthBar.value <= 0) {
+            StartCoroutine(Die());
+        }
+        yield return new WaitForSeconds(0.1f);
     }
 
     public void StartAutoAttack() { StartCoroutine(AutoAttack()); }
@@ -109,7 +154,6 @@ public class EntityController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         while (status == EntityStatus.Active) {
             if (GameStateManager.Instance.CurrentGameState == GameState.Combat) {
-                print("Attacking now");
                 yield return new WaitForSeconds(0.5f);
                 UseModule(combatManager.GetEnemy(this));
             }
@@ -118,9 +162,11 @@ public class EntityController : MonoBehaviour
         UpdateEntityStatus();
     }
     IEnumerator Die() {
-        print("Oh no I'm dying");
+        if (animator != null) {
+            animator.SetBool("Dead", true);
+        }
+        yield return new WaitForSeconds(2f);
         UpdateEntityStatus();
-        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 

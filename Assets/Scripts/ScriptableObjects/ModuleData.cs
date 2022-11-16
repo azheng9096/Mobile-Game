@@ -9,6 +9,7 @@ public class ModuleData : ScriptableObject
     public string modName;
     public Sprite sprite;
     public string descriptor;
+    public float animDelay;
     public ModuleType type;
     public int damage;
     public int accuracy;
@@ -17,8 +18,10 @@ public class ModuleData : ScriptableObject
 
     public string GetModuleType() {
         switch(type) {
-            case ModuleType.Attack:
-                return "Attack";
+            case ModuleType.Melee:
+                return "Melee";
+            case ModuleType.Shoot:
+                return "Shoot";
             case ModuleType.Support:
                 return "Support";
         }
@@ -26,4 +29,4 @@ public class ModuleData : ScriptableObject
     }
 }
 
-public enum ModuleType {Attack, Support};
+public enum ModuleType {Melee, Shoot, Support};
