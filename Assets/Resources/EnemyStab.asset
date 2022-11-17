@@ -18,6 +18,6 @@ MonoBehaviour:
   animDelay: 0.4
   type: 0
   damage: 10
-  accuracy: 80
+  accuracy: 100
   cooldown: 1
   specialEffect: 

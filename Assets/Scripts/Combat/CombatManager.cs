@@ -238,7 +238,7 @@ public class CombatManager : MonoBehaviour
     public IEnumerator StartCutscene()
     {
         GameStateManager.Instance.SetState(GameState.Cutscene);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(.1f);
         GameStateManager.Instance.SetState(GameState.Planning);
     }
     public IEnumerator EndCutscene()

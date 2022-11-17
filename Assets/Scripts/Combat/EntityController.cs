@@ -28,6 +28,10 @@ public class EntityController : MonoBehaviour
     bool hitInterrupt = false;
     [SerializeField] float animDelayMult = 1.0f; 
     [SerializeField] Animator animator;
+
+    public EntityController curTarget = null;
+    public Module curMod = null;
+
     public void Init(CombatManager combatManager, List<Module> modules, float maxHealth = 100f, float health = 100f) {
         if (animator != null) {
             animator.SetBool("Dead", false);
@@ -66,6 +70,7 @@ public class EntityController : MonoBehaviour
         if (dashing) {
             return;
         }
+        animator.SetTrigger("Dodge");
         StartCoroutine(Dash_Routine(callback));
     }
     IEnumerator Dash_Routine(Callback callback) {
@@ -91,13 +96,33 @@ public class EntityController : MonoBehaviour
         print(modules.Count);
     }
 
+    public void dealDamage(){
+        EntityController target = curTarget;
+        Module mod = curMod;
+
+        float r = Random.Range(0f, 100f);
+                if (r <= mod.moduleData.accuracy && this == combatManager.player)
+                {
+                    target.TakeDamage(mod.moduleData.damage);
+                    //show target dodge animation
+                } else if(target == combatManager.player)
+                {
+                    target.TakeDamage(mod.moduleData.damage);
+                } else {
+                    target.HandleMiss();
+                }
+    }
+
     IEnumerator UseModule_Routine(Module mod, EntityController target) {
         if (mod.moduleData.type == ModuleType.Shoot || mod.moduleData.type == ModuleType.Melee) {
             hitInterrupt = false;
             if (animator != null) {
                 animator.SetTrigger(mod.moduleData.GetModuleType());
             }
+            curTarget = target;
+            curMod = mod;
             yield return new WaitForSeconds(mod.moduleData.animDelay * animDelayMult);
+            /*
             if (!hitInterrupt) { //If the enemy attacked in between the animation activating then the mod was interrupted
                 float r = Random.Range(0f, 100f);
                 if (r <= mod.moduleData.accuracy && this == combatManager.player)
@@ -110,7 +135,7 @@ public class EntityController : MonoBehaviour
                 } else {
                     target.HandleMiss();
                 }
-            }
+            }*/
             
         } else if (mod.moduleData.type == ModuleType.Support) {
             if (mod.moduleData.specialEffect == "block") {
