@@ -782,6 +782,8 @@ MonoBehaviour:
   healthBar: {fileID: 1727121160}
   attackPattern: []
   status: 0
+  animDelayMult: 1
+  animator: {fileID: 0}
 --- !u!1 &928229278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,6 +1222,8 @@ MonoBehaviour:
   healthBar: {fileID: 943877679}
   attackPattern: []
   status: 0
+  animDelayMult: 1
+  animator: {fileID: 0}
 --- !u!95 &1151375519
 Animator:
   serializedVersion: 4
