@@ -20,7 +20,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] public EntityController player;
     [SerializeField] EntityController enemy;
 
-    [SerializeField]int workingEntities = 0;
+    [SerializeField]int workingEntities = 2;
     bool useOnCooldown = false;
     void Awake() {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
@@ -96,7 +96,7 @@ public class CombatManager : MonoBehaviour
         if (enemy != null)
         {
             workingEntities += 1;
-            enemy.Init(this, modEnemy, 100f, 50f);
+            enemy.Init(this, modEnemy, 50f, 50f);
             
         }
     }

@@ -20,6 +20,8 @@ public class DeckManager : MonoBehaviour
         instance = this;
     }
 
+
+
     public void AddModule(ModuleData moduleData) {
         deck.Add(new Module(moduleData));
 

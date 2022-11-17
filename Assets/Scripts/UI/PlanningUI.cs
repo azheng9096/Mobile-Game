@@ -54,7 +54,11 @@ public class PlanningUI : MonoBehaviour
         ClearSelection.OnModuleDrop += HandleModuleDrop;
 
         // Initialize Active State
-        planningUI.SetActive(GameStateManager.Instance.CurrentGameState == GameState.Planning);
+         planningUI.SetActive(GameStateManager.Instance.CurrentGameState == GameState.Planning);
+        if(GameStateManager.Instance.CurrentGameState == GameState.Planning)
+        {
+            planningUI.GetComponent<Animator>().SetTrigger("Show");
+        }
     }
 
     public void ListModules() {
@@ -235,7 +239,8 @@ public class PlanningUI : MonoBehaviour
         Debug.Log("Starting Battle");
 
         // Disable planning UI
-        planningUI.SetActive(false);
+        //planningUI.SetActive(false);
+        planningUI.GetComponent<Animator>().SetTrigger("Hide");
     }
 
     void SetSelection() {
@@ -277,6 +282,8 @@ public class PlanningUI : MonoBehaviour
             )
         {
             planningUI.SetActive(true);
+            print("hi1");
+            planningUI.GetComponent<Animator>().SetTrigger("Show");
             ListModules();
         }
     }

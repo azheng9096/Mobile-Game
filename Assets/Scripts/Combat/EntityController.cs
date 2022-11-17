@@ -14,6 +14,7 @@ public delegate void Callback();
 public class EntityController : MonoBehaviour
 {
     [SerializeField] Slider healthBar;
+    [SerializeField] Slider planningHealthBar;
     CombatManager combatManager;
     List<Module> modules;
     [SerializeField]
@@ -32,6 +33,8 @@ public class EntityController : MonoBehaviour
         this.modules = modules;
         healthBar.maxValue = maxHealth;
         healthBar.value = health;
+        planningHealthBar.maxValue = maxHealth;
+        planningHealthBar.value = health;
         healthBar.gameObject.SetActive(true);
         if (modules.Count == 0) {
             combatManager.UpdateStatus(this, EntityStatus.Empty);
@@ -142,6 +145,7 @@ public class EntityController : MonoBehaviour
             animator.SetTrigger("Hurt");
         }
         healthBar.value -= damage;
+        planningHealthBar.value -= damage;
         if (healthBar.value <= 0) {
             StartCoroutine(Die());
         }

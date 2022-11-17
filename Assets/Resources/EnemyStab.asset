@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff61c89a44a076044aa1ecf951c11c1b, type: 3}
-  m_Name: Stab
+  m_Name: EnemyStab
   m_EditorClassIdentifier: 
   modName: Stab
   sprite: {fileID: 21300000, guid: f0dbae5f047d2224fbd8f7947be7a075, type: 3}
   descriptor: Stabby stabby
-  animDelay: 0.1
+  animDelay: 0.4
   type: 0
   damage: 10
   accuracy: 80
