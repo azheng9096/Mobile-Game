@@ -25,7 +25,7 @@ public class CombatManager : MonoBehaviour
     void Awake() {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
     }
-    void Destroy() {
+    void OnDestroy() {
         GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
     }
     

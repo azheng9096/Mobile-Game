@@ -30,7 +30,7 @@ public class PlanningUI : MonoBehaviour
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
     }
 
-    void Destroy() {
+    void OnDestroy() {
         GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
         DeckManager.instance.DeckChangedCallback -= ListModules;
     }
@@ -282,7 +282,6 @@ public class PlanningUI : MonoBehaviour
             )
         {
             planningUI.SetActive(true);
-            print("hi1");
             planningUI.GetComponent<Animator>().SetTrigger("Show");
             ListModules();
         }

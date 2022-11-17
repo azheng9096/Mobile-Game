@@ -42,7 +42,6 @@ public class EntityController : MonoBehaviour
         healthBar.value = health;
         planningHealthBar.maxValue = maxHealth;
         planningHealthBar.value = health;
-        healthBar.gameObject.SetActive(true);
         if (modules.Count == 0) {
             combatManager.UpdateStatus(this, EntityStatus.Empty);
         }
@@ -63,7 +62,6 @@ public class EntityController : MonoBehaviour
     void Awake()
     {
         status = EntityStatus.Idle;
-        healthBar.gameObject.SetActive(false);
     }
     
     public void Dash(Callback callback) {

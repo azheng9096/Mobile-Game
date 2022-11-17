@@ -70,7 +70,7 @@ public class PauseManager : MonoBehaviour
     public void OnSoundEffectsSliderValueChange(float value)
     {
         sfxVolume = value;
-
+    
         UpdateMixerVolume();
         SaveOptions();
     }
@@ -97,7 +97,9 @@ public class PauseManager : MonoBehaviour
     public void restartGame()
     {
         Time.timeScale = 1f;
+        
         //maybe add a sort of transition animation
+        GameStateManager.Instance.SetState(GameState.Cutscene);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void quitGame()

@@ -1658,7 +1658,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: V.A.CYUUME
+  m_text: VK-00M3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acdce0f26ae1dd747ad92a42489e547c, type: 2}
   m_sharedMaterial: {fileID: 12122498813747747, guid: acdce0f26ae1dd747ad92a42489e547c, type: 2}
