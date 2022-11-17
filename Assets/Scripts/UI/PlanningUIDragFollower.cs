@@ -23,8 +23,7 @@ public class PlanningUIDragFollower : MonoBehaviour
     }
 
 
-    void Update()
-    {
+    public void FollowDrag() {
         Vector2 position;
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -36,6 +35,13 @@ public class PlanningUIDragFollower : MonoBehaviour
 
         transform.position = canvas.transform.TransformPoint(position);
     }
+
+
+    void LateUpdate()
+    {
+        FollowDrag();
+    }
+
 
     public void Toggle(bool val) {
         gameObject.SetActive(val);
