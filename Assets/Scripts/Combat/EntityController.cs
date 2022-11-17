@@ -19,6 +19,9 @@ public class EntityController : MonoBehaviour
     [SerializeField]
     public List<ModuleData> attackPattern;
     public EntityStatus status;
+
+    public GameObject TextPopUpPrefab;
+    public Transform TextPopUpTarget;
     bool dashing = false;
     bool blocking = false;
     bool hitInterrupt = false;
@@ -50,7 +53,6 @@ public class EntityController : MonoBehaviour
             status = EntityStatus.Idle;
         }
     }
-
     void Awake()
     {
         status = EntityStatus.Idle;
@@ -72,8 +74,11 @@ public class EntityController : MonoBehaviour
         yield return new WaitForSeconds(4f);
         callback();
     }
-
     public void UseModule(EntityController target) {
+        if (modules.Count == 0) {
+            UpdateEntityStatus();
+            return;
+        }
         print("Module used");
         print(modules.Count);
         Module mod = modules[modules.Count - 1];
@@ -99,6 +104,8 @@ public class EntityController : MonoBehaviour
                 } else if(target == combatManager.player)
                 {
                     target.TakeDamage(mod.moduleData.damage);
+                } else {
+                    target.HandleMiss();
                 }
             }
             
@@ -121,12 +128,27 @@ public class EntityController : MonoBehaviour
             status = EntityStatus.Empty;
         }
     }
+    void HandleMiss() {
+        print("Miss");
+        CreateTextPopUp("Miss", Color.white);
+    }
+
+    void CreateTextPopUp(string text, Color color) {
+        print("Creating popup " + text);
+        GameObject textPopUp = Instantiate(TextPopUpPrefab, TextPopUpTarget.position, Quaternion.identity, transform);
+        print(textPopUp);
+        TextPopUpController textPopUpController = textPopUp.GetComponent<TextPopUpController>();
+        textPopUpController.Init(text, color);
+        textPopUpController.Check();
+    }
 
     void TakeDamage(float damage) {
         if (dashing) {
             print("dodged");
+            CreateTextPopUp("Dodged", new Color(255, 130, 140, 255));
         } else if (blocking) {
             print("blocked");
+            CreateTextPopUp("Blocked", new Color(255, 130, 140, 255));
             blocking = false;
             if (animator != null) {
                 animator.SetBool("Blocking", false);
@@ -156,6 +178,7 @@ public class EntityController : MonoBehaviour
             if (GameStateManager.Instance.CurrentGameState == GameState.Combat) {
                 yield return new WaitForSeconds(0.5f);
                 UseModule(combatManager.GetEnemy(this));
+                
             }
             yield return new WaitForSeconds(2f);
         }
