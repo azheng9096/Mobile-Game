@@ -173,6 +173,7 @@ public class EntityController : MonoBehaviour
             print("dodged");
             CreateTextPopUp("Dodged", new Color(255, 130, 140, 255));
         } else if (blocking) {
+            StartCoroutine(FindObjectOfType<CameraShaker>().Shake(.3f, .3f));
             print("blocked");
             CreateTextPopUp("Blocked", new Color(255, 130, 140, 255));
             blocking = false;
@@ -180,6 +181,7 @@ public class EntityController : MonoBehaviour
                 animator.SetBool("Blocking", false);
             }
         } else {
+            StartCoroutine(FindObjectOfType<CameraShaker>().Shake(.3f, .5f));
             StartCoroutine(TakeDamage_Routine(damage));
         }
     }
@@ -215,7 +217,13 @@ public class EntityController : MonoBehaviour
         if (animator != null) {
             animator.SetBool("Dead", true);
         }
-        yield return new WaitForSeconds(2f);
+        status = EntityStatus.Dead;
+        yield return new WaitForSeconds(.3f);
+        if (this == combatManager.player)
+        {
+            FindObjectOfType<DeathUI>().ShowDeath();
+        }
+        yield return new WaitForSeconds(1f);
         UpdateEntityStatus();
         Destroy(gameObject);
     }

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modName: Stab
   sprite: {fileID: 21300000, guid: f0dbae5f047d2224fbd8f7947be7a075, type: 3}
-  descriptor: Stabby stabby
+  descriptor: Generate a laser sword
   animDelay: 0.4
   type: 0
-  damage: 10
+  damage: 20
   accuracy: 100
   cooldown: 1
   specialEffect: 

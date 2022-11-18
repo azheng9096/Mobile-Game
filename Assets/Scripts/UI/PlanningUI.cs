@@ -241,6 +241,8 @@ public class PlanningUI : MonoBehaviour
         // Disable planning UI
         //planningUI.SetActive(false);
         planningUI.GetComponent<Animator>().SetTrigger("Hide");
+        //check deck if empty
+        StartCoroutine(DeckManager.instance.checkForGeneration());
     }
 
     void SetSelection() {
@@ -281,6 +283,7 @@ public class PlanningUI : MonoBehaviour
             /*&& GameStateManager.Instance.PreviousGameState == GameState.Combat*/
             )
         {
+            print("now planning");
             planningUI.SetActive(true);
             planningUI.GetComponent<Animator>().SetTrigger("Show");
             ListModules();

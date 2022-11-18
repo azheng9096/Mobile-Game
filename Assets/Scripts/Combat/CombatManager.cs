@@ -90,7 +90,7 @@ public class CombatManager : MonoBehaviour
         if (player != null)
         {
             workingEntities += 1;
-            player.Init(this, modules, 100f, 100f);
+            player.Init(this, modules, 50f, 50f);
             
         }
         if (enemy != null)
@@ -248,7 +248,7 @@ public class CombatManager : MonoBehaviour
     }
 
     void EndCombat() {
-        if (enemy != null && enemy.status != EntityStatus.Dead)
+        if (enemy != null && player != null && enemy.status != EntityStatus.Dead && player.status != EntityStatus.Dead)
         {
             print("End combat");
             //hide the two buttons

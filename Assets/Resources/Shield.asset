@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modName: Shield
   sprite: {fileID: 21300000, guid: 73885ce8abee9cf498ede2fb44caa907, type: 3}
-  descriptor: Shield me plz
+  descriptor: 
   animDelay: 0.2
   type: 2
   damage: 10

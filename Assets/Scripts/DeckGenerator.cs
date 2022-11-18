@@ -16,18 +16,31 @@ public class DeckGenerator : MonoBehaviour
     }
     
     public ModuleAmount[] moduleAmounts;
+    public static DeckGenerator instance;
+
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        yield return new WaitForSecondsRealtime(1f);
-        foreach(ModuleAmount m in moduleAmounts)
+        if (instance != null)
         {
-            for(int i = 0; i < m.amount; i++)
+            Debug.Log("An instance of DeckGenerator already exists");
+            Destroy(this.gameObject);
+        }
+        instance = this;
+        yield return new WaitForSecondsRealtime(1f);
+        GenerateDeck();
+    }
+
+    public void GenerateDeck()
+    {
+        foreach (ModuleAmount m in moduleAmounts)
+        {
+            for (int i = 0; i < m.amount; i++)
             {
                 print(i);
                 DeckManager.instance.AddModule(m.data);
             }
-            
+
         }
     }
 
