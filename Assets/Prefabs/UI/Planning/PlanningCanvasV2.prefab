@@ -2390,6 +2390,7 @@ GameObject:
   - component: {fileID: 2578950774533256271}
   - component: {fileID: 2578950774533256264}
   - component: {fileID: 2578950774533256265}
+  - component: {fileID: 9041329772949520927}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -2512,6 +2513,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9041329772949520927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578950774533256267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0125d7405843b440b8d7ffb0df60369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2578950774546171729
 GameObject:
   m_ObjectHideFlags: 0
@@ -4671,6 +4684,7 @@ MonoBehaviour:
   ClearSelection: {fileID: 2578950773577192217}
   dragFollower: {fileID: 2578950775021531143}
   InfoDisplay: {fileID: 2578950774829536933}
+  StartButton: {fileID: 9041329772949520927}
   combatManager: {fileID: 0}
 --- !u!1 &2578950775419614135
 GameObject:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlanningUI : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlanningUI : MonoBehaviour
 
     [SerializeField] PlanningUIInfoDisplay InfoDisplay;
 
+
+    [SerializeField] PlanningUIStartButton StartButton;
 
     [SerializeField] CombatManager combatManager;
 
@@ -82,6 +85,7 @@ public class PlanningUI : MonoBehaviour
         }
 
         UpdateModuleSlots();
+        UpdateStartButton();
     }
 
     // Update module slots (enable/disable) when selections changes
@@ -124,6 +128,14 @@ public class PlanningUI : MonoBehaviour
             }
 
             slot.Enable();
+        }
+    }
+
+    void UpdateStartButton() {
+        if (selectionCurrentState.Count == 0) {
+            StartButton.SetInteractable(false);
+        } else {
+            StartButton.SetInteractable(true);
         }
     }
 
@@ -205,6 +217,7 @@ public class PlanningUI : MonoBehaviour
 
         selectionSlot.Set(currentlyDraggedModule);
         UpdateModuleSlots();
+        UpdateStartButton();
 
         // Below handled by HandleEndDrag()
         // dragFollower.Toggle(false);
@@ -222,6 +235,7 @@ public class PlanningUI : MonoBehaviour
 
         selectionCurrentState[currentlyDraggedModule].ResetSlot();
         UpdateModuleSlots();
+        UpdateStartButton();
     }
 
 
@@ -274,6 +288,7 @@ public class PlanningUI : MonoBehaviour
         }
 
         UpdateModuleSlots();
+        UpdateStartButton();
     }
 
 
