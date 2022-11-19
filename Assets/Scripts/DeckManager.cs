@@ -64,6 +64,11 @@ public class DeckManager : MonoBehaviour
         DeckChangedCallback.Invoke();
     }
 
+    public void SortByAvailability() {
+        deck.Sort((x, y) => y.planningAvailable.CompareTo(x.planningAvailable));
+    }
+
+
     void Update() {
     }
 }
