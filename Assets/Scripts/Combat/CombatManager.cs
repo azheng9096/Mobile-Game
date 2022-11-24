@@ -245,6 +245,7 @@ public class CombatManager : MonoBehaviour
     {
         GameStateManager.Instance.SetState(GameState.Cutscene);
         yield return new WaitForSeconds(2f);
+        GameStateManager.Instance.SetState(GameState.Victory);
     }
 
     void EndCombat() {
