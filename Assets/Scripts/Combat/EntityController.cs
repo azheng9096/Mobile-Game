@@ -29,6 +29,8 @@ public class EntityController : MonoBehaviour
     [SerializeField] float animDelayMult = 1.0f; 
     [SerializeField] Animator animator;
 
+    [SerializeField] LaserController laserController;
+
     public EntityController curTarget = null;
     public Module curMod = null;
 
@@ -116,25 +118,12 @@ public class EntityController : MonoBehaviour
             hitInterrupt = false;
             if (animator != null) {
                 animator.SetTrigger(mod.moduleData.GetModuleType());
+                if (mod.moduleData.type == ModuleType.Shoot && laserController != null) {
+                    laserController.Shoot();
+                }
             }
             curTarget = target;
             curMod = mod;
-            yield return new WaitForSeconds(mod.moduleData.animDelay * animDelayMult);
-            /*
-            if (!hitInterrupt) { //If the enemy attacked in between the animation activating then the mod was interrupted
-                float r = Random.Range(0f, 100f);
-                if (r <= mod.moduleData.accuracy && this == combatManager.player)
-                {
-                    target.TakeDamage(mod.moduleData.damage);
-                    //show target dodge animation
-                } else if(target == combatManager.player)
-                {
-                    target.TakeDamage(mod.moduleData.damage);
-                } else {
-                    target.HandleMiss();
-                }
-            }*/
-            
         } else if (mod.moduleData.type == ModuleType.Support) {
             if (mod.moduleData.specialEffect == "block") {
                 if (animator != null) {
@@ -187,9 +176,11 @@ public class EntityController : MonoBehaviour
     }
 
     IEnumerator TakeDamage_Routine(float damage) {
-        hitInterrupt = true;
         if (animator != null) {
             animator.SetTrigger("Hurt");
+            if (laserController != null) {
+                laserController.EndShoot();
+            }
         }
         healthBar.value -= damage;
         planningHealthBar.value -= damage;

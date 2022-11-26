@@ -37,7 +37,6 @@ public class DeckGenerator : MonoBehaviour
         {
             for (int i = 0; i < m.amount; i++)
             {
-                print(i);
                 DeckManager.instance.AddModule(m.data);
             }
 

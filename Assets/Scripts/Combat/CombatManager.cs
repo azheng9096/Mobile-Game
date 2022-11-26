@@ -35,9 +35,6 @@ public class CombatManager : MonoBehaviour
         moduleIcons = new List<GameObject>();
         HUDGroup.SetActive(GameStateManager.Instance.CurrentGameState == GameState.Combat);
 
-
-        print(Resources.Load<ModuleData>("Stab"));
-        Module mod = new Module(Resources.Load<ModuleData>("Stab"));
         startBattle();
 
         StartCoroutine(StartCutscene());
@@ -226,8 +223,6 @@ public class CombatManager : MonoBehaviour
             workingEntities -= 1;
             if (status == EntityStatus.Dead) {
                 enemy.status = EntityStatus.Dead;
-                print("You win, they're dead");
-                
             }
         }
         if (workingEntities == 0) {
