@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PlanningUIDragFollower : MonoBehaviour
 {
-    Canvas canvas;
+    public Canvas canvas;
     Camera mainCam;
 
     PlanningUIModuleSlot moduleSlot;
 
     void Awake()
     {
-        canvas = transform.root.GetComponent<Canvas>();
         mainCam = Camera.main;
 
         moduleSlot = GetComponentInChildren<PlanningUIModuleSlot>();

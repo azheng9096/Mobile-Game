@@ -1,0 +1,939 @@
+fileFormatVersion: 2
+guid: e6cde9d8a2b4c9f41b392f8d4d3803f2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acfdf91067ba3ca479fb90dd0875ad27
+      internalID: -316545897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_1
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b6f25cf57cd5742bc0c8961e7241b8
+      internalID: 1416339832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_2
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94dd186fc725ba045b00cdddb690cce4
+      internalID: -1433521429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_3
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 699e2db4bb682194dac551df980c608e
+      internalID: -717516587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_4
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e12d5f54abbe1a14a99e169ac0a3200a
+      internalID: 1859214226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_5
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeacec3d9e4d73748b24b508e455f155
+      internalID: 109207429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e53e6c25785f1c48a0a513ad6612511
+      internalID: 1816924861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddfd9c59045edb045b0c0368b1efd09b
+      internalID: -1235182773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43fa7137bc844bd4a91280289fee8372
+      internalID: 476679708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_9
+      rect:
+        serializedVersion: 2
+        x: 1575
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77063ff195450f143b5180c10a53381e
+      internalID: 365395813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6857d4fb3d5a3d54da6ff6e03000ea57
+      internalID: 152863047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1925
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea88bf19e6266cf49923936f102f4c4e
+      internalID: -1533497524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_12
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c59a3986ea2374dba212793a23a8d1
+      internalID: -1057908471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_13
+      rect:
+        serializedVersion: 2
+        x: 2275
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f122a318c2d0f4da278da59e89c324
+      internalID: -1985265733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_14
+      rect:
+        serializedVersion: 2
+        x: 2450
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b926a67d890aa7e4c98948367e4f21a8
+      internalID: 1663521852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_15
+      rect:
+        serializedVersion: 2
+        x: 2625
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b874fd4d90c4e124aa434bab4b94b276
+      internalID: -1762647648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_16
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d448f25b52af92540a96ed76db0c890f
+      internalID: -420986895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_17
+      rect:
+        serializedVersion: 2
+        x: 2975
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d34a85ab990262d44b17af9d1d1faf9e
+      internalID: 2053638133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_18
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6575c1261842f6a4990acb3f5e8b5c4d
+      internalID: 559133479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_19
+      rect:
+        serializedVersion: 2
+        x: 3325
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b82ff32e5ffcd2f4fbe7df158e53a049
+      internalID: 1550652993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_20
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7634dae3e5bca604092ed60782b5bc66
+      internalID: 900805461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_21
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450af4fd1607db7409de775e2cbae262
+      internalID: -1245347713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_22
+      rect:
+        serializedVersion: 2
+        x: 3850
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f68ca7356edf14a88b0612210dfc38
+      internalID: 1275648792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_23
+      rect:
+        serializedVersion: 2
+        x: 4025
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae5a390c7c09934b9788766b58ffa99
+      internalID: -1549042789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_24
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e9cb6722c1e484e879415fb15d0e29
+      internalID: -842137600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_25
+      rect:
+        serializedVersion: 2
+        x: 4375
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a251c6c9d0ab2b341b7bf7c52bb5f36f
+      internalID: -1810128488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_26
+      rect:
+        serializedVersion: 2
+        x: 4550
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41a18d9a7c83d174898fc012ae49768e
+      internalID: -1901363559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_27
+      rect:
+        serializedVersion: 2
+        x: 4725
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3858d629d8bb0704bb4c16f248abf875
+      internalID: 2133655105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_28
+      rect:
+        serializedVersion: 2
+        x: 4900
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f4e39308742e54dbb59b93207a8c79
+      internalID: -459428352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_29
+      rect:
+        serializedVersion: 2
+        x: 5075
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5940f2326a31ee4dbadeb06d0cce575
+      internalID: 1054871065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_30
+      rect:
+        serializedVersion: 2
+        x: 5250
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b78b93ca236db4f8b3705f2a868121
+      internalID: 2057625813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_31
+      rect:
+        serializedVersion: 2
+        x: 5425
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507e36c87a27c95498c384d06e2f9575
+      internalID: -296255971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_32
+      rect:
+        serializedVersion: 2
+        x: 5600
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e843628497bb124494e87dc33bc34c4
+      internalID: 456813827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_33
+      rect:
+        serializedVersion: 2
+        x: 5775
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841f7d78928a10d43ac00adaf4ada330
+      internalID: 393045913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_34
+      rect:
+        serializedVersion: 2
+        x: 5950
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac47c0805abf0b3419f19d3f0f004ed2
+      internalID: 2062554706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thatsaweirdgundamyougotthereSheet_35
+      rect:
+        serializedVersion: 2
+        x: 6125
+        y: 0
+        width: 175
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e7773fbd8165a4790a7aefee88fe5e
+      internalID: 539751432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      thatsaweirdgundamyougotthereSheet_34: 2062554706
+      thatsaweirdgundamyougotthereSheet_1: 1416339832
+      thatsaweirdgundamyougotthereSheet_0: -316545897
+      thatsaweirdgundamyougotthereSheet_17: 2053638133
+      thatsaweirdgundamyougotthereSheet_30: 2057625813
+      thatsaweirdgundamyougotthereSheet_33: 393045913
+      thatsaweirdgundamyougotthereSheet_21: -1245347713
+      thatsaweirdgundamyougotthereSheet_4: 1859214226
+      thatsaweirdgundamyougotthereSheet_6: 1816924861
+      thatsaweirdgundamyougotthereSheet_19: 1550652993
+      thatsaweirdgundamyougotthereSheet_2: -1433521429
+      thatsaweirdgundamyougotthereSheet_22: 1275648792
+      thatsaweirdgundamyougotthereSheet_7: -1235182773
+      thatsaweirdgundamyougotthereSheet_26: -1901363559
+      thatsaweirdgundamyougotthereSheet_10: 152863047
+      thatsaweirdgundamyougotthereSheet_29: 1054871065
+      thatsaweirdgundamyougotthereSheet_20: 900805461
+      thatsaweirdgundamyougotthereSheet_15: -1762647648
+      thatsaweirdgundamyougotthereSheet_27: 2133655105
+      thatsaweirdgundamyougotthereSheet_25: -1810128488
+      thatsaweirdgundamyougotthereSheet_32: 456813827
+      thatsaweirdgundamyougotthereSheet_31: -296255971
+      thatsaweirdgundamyougotthereSheet_11: -1533497524
+      thatsaweirdgundamyougotthereSheet_35: 539751432
+      thatsaweirdgundamyougotthereSheet_12: -1057908471
+      thatsaweirdgundamyougotthereSheet_8: 476679708
+      thatsaweirdgundamyougotthereSheet_13: -1985265733
+      thatsaweirdgundamyougotthereSheet_3: -717516587
+      thatsaweirdgundamyougotthereSheet_16: -420986895
+      thatsaweirdgundamyougotthereSheet_28: -459428352
+      thatsaweirdgundamyougotthereSheet_24: -842137600
+      thatsaweirdgundamyougotthereSheet_5: 109207429
+      thatsaweirdgundamyougotthereSheet_23: -1549042789
+      thatsaweirdgundamyougotthereSheet_18: 559133479
+      thatsaweirdgundamyougotthereSheet_9: 365395813
+      thatsaweirdgundamyougotthereSheet_14: 1663521852
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

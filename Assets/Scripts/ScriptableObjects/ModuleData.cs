@@ -9,7 +9,7 @@ public class ModuleData : ScriptableObject
     public string modName;
     public Sprite sprite;
     public string descriptor;
-    public float animDelay;
+    public string animName;
     public ModuleType type;
     public int mode;
     public int damage;
