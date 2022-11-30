@@ -159,6 +159,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1736519478}
     - target: {fileID: 5118180060046885702, guid: d30305c8a77208d4a937195a7ad670c1, type: 3}
+      propertyPath: attackPattern.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 50e261f157cddb240ab8727333fe1412, type: 2}
+    - target: {fileID: 5118180060046885702, guid: d30305c8a77208d4a937195a7ad670c1, type: 3}
       propertyPath: attackPattern.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: c24c878359f84294e8c48a9876eeba15, type: 2}
