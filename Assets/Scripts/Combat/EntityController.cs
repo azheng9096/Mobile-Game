@@ -234,4 +234,12 @@ public class EntityController : MonoBehaviour
         }
         combatManager.UpdateStatus(this, status);
     }
+
+    public float GetEntityHP() {
+        return healthBar.value;
+    }
+
+    public float GetEntityMaxHP() {
+        return healthBar.maxValue;
+    }
 }

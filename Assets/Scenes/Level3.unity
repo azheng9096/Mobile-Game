@@ -383,6 +383,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2298372432622807666, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1589558158}
+    - target: {fileID: 2298372432622807666, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: nextLevelName
+      value: Level4
+      objectReference: {fileID: 0}
     - target: {fileID: 2357713155554762391, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -549,7 +557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 5.623836
+      value: 5.0052247
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_BackGroundColor.a

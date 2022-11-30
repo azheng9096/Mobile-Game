@@ -20,6 +20,9 @@ public class DeckManager : MonoBehaviour
         instance = this;
     }
 
+    void Start() {
+    }
+
     public IEnumerator checkForGeneration()
     {
         yield return new WaitForSeconds(1f);
@@ -45,12 +48,14 @@ public class DeckManager : MonoBehaviour
     public void AddModule(ModuleData moduleData) {
         deck.Add(new Module(moduleData));
 
+        SortByDefault();
         DeckChangedCallback.Invoke();
     }
 
     public void RemoveModule(Module module) {
         deck.Remove(module);
 
+        SortByDefault();
         DeckChangedCallback.Invoke();
     }
 
@@ -61,7 +66,41 @@ public class DeckManager : MonoBehaviour
         }
 
         module.planningAvailable = val;
+
+        SortByDefault();
         DeckChangedCallback.Invoke();
+    }
+
+
+    public void SetDeck(List<Module> deck) {
+        this.deck = deck;
+
+        SortByDefault();
+        DeckChangedCallback.Invoke();
+    }
+
+
+    public void ExtendDeck(List<Module> deck) {
+        foreach (Module module in deck) {
+            this.deck.Add(module);
+        }
+
+        SortByDefault();
+        DeckChangedCallback.Invoke();
+    }
+
+
+    public void SortByDefault() {
+        print("Sorting");
+        
+        deck.Sort((x, y) => {
+            int ret = y.planningAvailable.CompareTo(x.planningAvailable);
+            return ret != 0 ? ret : x.moduleData.modName.CompareTo(y.moduleData.modName);
+        });
+    }
+
+    public void SortByName() {
+        deck.Sort((x, y) => x.moduleData.modName.CompareTo(y.moduleData.modName));
     }
 
     public void SortByAvailability() {
