@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserController : MonoBehaviour
+public class AttackController : MonoBehaviour
 {
     public float xOffset = 0.0f;
     public float yOffset = 0.0f;
     public float length = 1f;
 
-    SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
 
     public Transform parent;
 
     public bool liveMove = false;
 
-    Animator animator;
+    protected Animator animator;
+
+    protected EntityController caller;
     // Start is called before the first frame update
-    void Start()
+    virtual public void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -33,18 +35,23 @@ public class LaserController : MonoBehaviour
         }
         #endif
     }
-    public void Shoot() {
+    virtual public void Activate(EntityController caller, string type = "") {
+        this.caller = caller;
         spriteRenderer.enabled = true;
-        animator.SetTrigger("Shoot");
+        animator.SetTrigger("Activate");
     }
-    public void EndShoot() {
+    virtual public void EndActivate() {
         spriteRenderer.enabled = false;
     }
-    void moveSelf() {
+    virtual protected void moveSelf() {
         Vector3 pos = transform.position;
         pos.x = xOffset + (length * 2) + parent.position.x;
         pos.y = yOffset + parent.position.y;
         transform.position = pos;
         spriteRenderer.size = new Vector2(length, spriteRenderer.size.y);
+    }
+
+    virtual public void dealDamage() {
+        caller.dealDamage();
     }
 }

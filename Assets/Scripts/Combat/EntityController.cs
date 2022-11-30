@@ -25,11 +25,9 @@ public class EntityController : MonoBehaviour
     public Transform TextPopUpTarget;
     bool dashing = false;
     bool blocking = false;
-    bool hitInterrupt = false;
-    [SerializeField] float animDelayMult = 1.0f; 
     [SerializeField] Animator animator;
 
-    [SerializeField] LaserController laserController;
+    [SerializeField] AttackController attackController;
 
     public EntityController curTarget = null;
     public Module curMod = null;
@@ -115,11 +113,10 @@ public class EntityController : MonoBehaviour
 
     IEnumerator UseModule_Routine(Module mod, EntityController target) {
         if (mod.moduleData.type == ModuleType.Shoot || mod.moduleData.type == ModuleType.Melee) {
-            hitInterrupt = false;
             if (animator != null) {
-                animator.SetTrigger(mod.moduleData.GetModuleType());
-                if (mod.moduleData.type == ModuleType.Shoot && laserController != null) {
-                    laserController.Shoot();
+                animator.SetTrigger(mod.moduleData.animName != "" ? mod.moduleData.animName : mod.moduleData.GetModuleType());
+                if (mod.moduleData.type == ModuleType.Shoot && attackController != null) {
+                    attackController.Activate(this, mod.moduleData.animName);
                 }
             }
             curTarget = target;
@@ -178,8 +175,8 @@ public class EntityController : MonoBehaviour
     IEnumerator TakeDamage_Routine(float damage) {
         if (animator != null) {
             animator.SetTrigger("Hurt");
-            if (laserController != null) {
-                laserController.EndShoot();
+            if (attackController != null) {
+                attackController.EndActivate();
             }
         }
         healthBar.value -= damage;

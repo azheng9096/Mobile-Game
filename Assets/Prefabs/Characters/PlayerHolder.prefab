@@ -170,9 +170,8 @@ MonoBehaviour:
   status: 0
   TextPopUpPrefab: {fileID: 7241006826954038281, guid: 8e764b5dd4fd8994988a5f420b881465, type: 3}
   TextPopUpTarget: {fileID: 3960435546903578707}
-  animDelayMult: 1
   animator: {fileID: 3960435548303486761}
-  laserController: {fileID: 0}
+  attackController: {fileID: 695499777760417593}
   curTarget: {fileID: 0}
 --- !u!95 &3960435548303486761
 Animator:
@@ -308,7 +307,7 @@ GameObject:
   - component: {fileID: 695499777760417593}
   - component: {fileID: 6367640496098875324}
   m_Layer: 0
-  m_Name: LaserSpriteSheet_0
+  m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -395,8 +394,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0.9
   yOffset: -0.04
-  length: 1
+  length: 1.8
   parent: {fileID: 3960435548303486775}
+  liveMove: 0
 --- !u!95 &6367640496098875324
 Animator:
   serializedVersion: 4
@@ -407,7 +407,7 @@ Animator:
   m_GameObject: {fileID: 6623656228931270375}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a1fac9fe2e148b443b225d9da847db74, type: 2}
+  m_Controller: {fileID: 9100000, guid: fcd151114a7072c42a9cff056bbe8401, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
