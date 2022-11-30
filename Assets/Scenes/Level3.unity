@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136937002}
   m_LocalRotation: {x: 0, y: 0, z: 0.031759687, w: 0.99949557}
-  m_LocalPosition: {x: -1.255, y: -0.4641, z: 0.2}
+  m_LocalPosition: {x: -1.833, y: -0.526, z: 0.2}
   m_LocalScale: {x: 0.8500001, y: 0.85, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -222,7 +222,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 3.0037723, y: 0.2573282}
+  m_Size: {x: 4.3690605, y: 0.19420008}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2027,6 +2027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 4340394087213687911}
   planningHealthBar: {fileID: 1162078159}
+  combatManager: {fileID: 0}
   attackPattern:
   - {fileID: 11400000, guid: 14813f11810fc5c46be3dcfa5cc0b037, type: 2}
   - {fileID: 11400000, guid: 14813f11810fc5c46be3dcfa5cc0b037, type: 2}
@@ -2039,6 +2040,7 @@ MonoBehaviour:
   TextPopUpTarget: {fileID: 6103432188749607569}
   animator: {fileID: 6103432190626898937}
   attackController: {fileID: 1145037999}
+  droneController: {fileID: 0}
   curTarget: {fileID: 0}
 --- !u!1 &6103432190626898821
 GameObject:

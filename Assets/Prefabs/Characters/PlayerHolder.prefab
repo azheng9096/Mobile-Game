@@ -172,9 +172,8 @@ MonoBehaviour:
   status: 0
   TextPopUpPrefab: {fileID: 7241006826954038281, guid: 8e764b5dd4fd8994988a5f420b881465, type: 3}
   TextPopUpTarget: {fileID: 3960435546903578707}
-  animDelayMult: 1
   animator: {fileID: 3960435548303486761}
-  laserController: {fileID: 695499777760417593}
+  attackController: {fileID: 695499777760417593}
   droneController: {fileID: 1357960483467216852}
   curTarget: {fileID: 0}
 --- !u!95 &3960435548303486761

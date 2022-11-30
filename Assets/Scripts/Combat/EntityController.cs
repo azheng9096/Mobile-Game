@@ -27,9 +27,8 @@ public class EntityController : MonoBehaviour
     bool blocking = false;
     [SerializeField] Animator animator;
 
-    [SerializeField] LaserController laserController;
-    [SerializeField] DroneController droneController;
     [SerializeField] AttackController attackController;
+    [SerializeField] DroneController droneController;
 
     public EntityController curTarget = null;
     public Module curMod = null;
