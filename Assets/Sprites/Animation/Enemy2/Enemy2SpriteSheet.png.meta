@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -443,6 +443,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Enemy2SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 0
+        width: 82
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53180daed1e744847b0df35f00c4bcf0
+      internalID: 1238485135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 0
+        width: 82
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e68f98b901aba6e42bc74aafb151e148
+      internalID: -1899918761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 0
+        width: 82
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390daa545ea7bca49962ed0b72b8ae97
+      internalID: 1596783472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 1476
+        y: 0
+        width: 82
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08210bc4d24e7e645919fd46491f8ccf
+      internalID: 1161647032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -458,8 +542,10 @@ TextureImporter:
       Enemy2SpriteSheet_12: 2105522249
       Enemy2SpriteSheet_13: 2071035437
       Enemy2SpriteSheet_6: -387567938
+      Enemy2SpriteSheet_17: 1596783472
       Enemy2SpriteSheet_8: 2063457778
       Enemy2SpriteSheet_9: 1471797801
+      Enemy2SpriteSheet_16: -1899918761
       Enemy2SpriteSheet_2: 1415857231
       Enemy2SpriteSheet_0: -862537469
       Enemy2SpriteSheet_3: 1710057516
@@ -467,7 +553,9 @@ TextureImporter:
       Enemy2SpriteSheet_11: 464035085
       Enemy2SpriteSheet_7: 1254681400
       Enemy2SpriteSheet_5: 618179225
+      Enemy2SpriteSheet_15: 1238485135
       Enemy2SpriteSheet_1: 1156088508
+      Enemy2SpriteSheet_18: 1161647032
       Enemy2SpriteSheet_10: -110469305
   spritePackingTag: 
   pSDRemoveMatte: 0
