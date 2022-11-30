@@ -15,7 +15,7 @@ public class EntityController : MonoBehaviour
 {
     [SerializeField] Slider healthBar;
     [SerializeField] Slider planningHealthBar;
-    CombatManager combatManager;
+    public CombatManager combatManager;
     List<Module> modules;
     [SerializeField]
     public List<ModuleData> attackPattern;
@@ -30,6 +30,7 @@ public class EntityController : MonoBehaviour
     [SerializeField] Animator animator;
 
     [SerializeField] LaserController laserController;
+    [SerializeField] DroneController droneController;
 
     public EntityController curTarget = null;
     public Module curMod = null;
@@ -114,6 +115,7 @@ public class EntityController : MonoBehaviour
     }
 
     IEnumerator UseModule_Routine(Module mod, EntityController target) {
+        
         if (mod.moduleData.type == ModuleType.Shoot || mod.moduleData.type == ModuleType.Melee) {
             hitInterrupt = false;
             if (animator != null) {
@@ -136,6 +138,10 @@ public class EntityController : MonoBehaviour
                     animator.SetBool("Blocking", false);
                 }
             }
+        } else if (mod.moduleData.type == ModuleType.Drone)
+        {
+            //do drone stuff
+            droneController.init(this, target, mod);
         }
         if (modules.Count == 0 ) {
             if(this == combatManager.player)
@@ -143,7 +149,7 @@ public class EntityController : MonoBehaviour
             status = EntityStatus.Empty;
         }
     }
-    void HandleMiss() {
+    public void HandleMiss() {
         print("Miss");
         CreateTextPopUp("Miss", Color.white);
     }
@@ -157,20 +163,22 @@ public class EntityController : MonoBehaviour
         textPopUpController.Check();
     }
 
-    void TakeDamage(float damage) {
+    public void TakeDamage(float damage) {
         if (dashing) {
             print("dodged");
             CreateTextPopUp("Dodged", new Color(255, 130, 140, 255));
         } else if (blocking) {
-            StartCoroutine(FindObjectOfType<CameraShaker>().Shake(.3f, .3f));
+            StartCoroutine(FindObjectOfType<CameraShaker>().Shake(.1f, .1f));
             print("blocked");
             CreateTextPopUp("Blocked", new Color(255, 130, 140, 255));
-            blocking = false;
+            /*
+             * blocking = false;
+            
             if (animator != null) {
                 animator.SetBool("Blocking", false);
-            }
+            }*/
         } else {
-            StartCoroutine(FindObjectOfType<CameraShaker>().Shake(.3f, .5f));
+            StartCoroutine(FindObjectOfType<CameraShaker>().Shake(.1f, .3f));
             StartCoroutine(TakeDamage_Routine(damage));
         }
     }

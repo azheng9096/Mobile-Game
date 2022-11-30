@@ -11,6 +11,7 @@ public class ModuleData : ScriptableObject
     public string descriptor;
     public float animDelay;
     public ModuleType type;
+    public int mode;
     public int damage;
     public int accuracy;
     public float cooldown;
@@ -24,9 +25,11 @@ public class ModuleData : ScriptableObject
                 return "Shoot";
             case ModuleType.Support:
                 return "Support";
+            case ModuleType.Drone:
+                return "Drone";
         }
         return "";
     }
 }
 
-public enum ModuleType {Melee, Shoot, Support};
+public enum ModuleType {Melee, Shoot, Support, Drone};
