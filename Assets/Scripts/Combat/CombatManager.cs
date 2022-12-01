@@ -87,8 +87,8 @@ public class CombatManager : MonoBehaviour
         if (player != null)
         {
             workingEntities += 1;
-            player.Init(this, modules, 50f, 50f);
-            
+            //player.Init(this, modules, 50f, 50f);
+            player.Init(this, PlayerSavedData.playerDeck, PlayerSavedData.maxHP, PlayerSavedData.HP);
         }
         if (enemy != null)
         {

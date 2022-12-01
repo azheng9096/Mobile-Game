@@ -277,9 +277,6 @@ public class PlanningUI : MonoBehaviour
         // Clear selections
         ClearAllSelectionSlots();
 
-        // Sort deck by availability
-        DeckManager.instance.SortByAvailability();
-
         // Update slots
         ListModules();
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VictoryUI : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class VictoryUI : MonoBehaviour
     [SerializeField] GameObject ModuleSlotPrefab;
 
     [SerializeField] PlanningUIInfoDisplay InfoDisplay;
+
+    [SerializeField] EntityController player;
+    [SerializeField] string nextLevelName = "nextLevel";
 
     List<Module> salvageModules = new List<Module>();
     public delegate void OnSalvageModulesChanged();
@@ -77,7 +81,21 @@ public class VictoryUI : MonoBehaviour
     // --- NEXT STAGE BUTTON ---
     // Handle On Click
     public void OnButtonClick() {
-        print("going to next stage");
+        print("saving player progress and going to next stage");
+
+        // Add salvaged modules to player deck
+        DeckManager.instance.ExtendDeck(salvageModules);
+
+        // Clear salvaged modules
+        ClearModules();
+
+        // Save player data
+        PlayerSavedData.HP = player.GetEntityHP();
+        PlayerSavedData.maxHP = player.GetEntityMaxHP();
+        PlayerSavedData.playerDeck = DeckManager.instance.deck;
+
+        // Load next level
+        SceneManager.LoadScene(nextLevelName);
     }
 
 
