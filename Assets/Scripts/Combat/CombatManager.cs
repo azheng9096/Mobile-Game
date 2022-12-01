@@ -88,12 +88,14 @@ public class CombatManager : MonoBehaviour
         {
             workingEntities += 1;
             //player.Init(this, modules, 50f, 50f);
-            player.Init(this, PlayerSavedData.playerDeck, PlayerSavedData.maxHP, PlayerSavedData.HP);
+            player.Init(this, modules, PlayerSavedData.maxHP, PlayerSavedData.HP);
+            print("DEBUGDEBUGDEBUG player here");
         }
         if (enemy != null)
         {
             workingEntities += 1;
             enemy.Init(this, modEnemy, 50f, 50f);
+            print("DEBUGDEBUGDEBUG enemy here");
             
         }
     }
@@ -223,6 +225,7 @@ public class CombatManager : MonoBehaviour
             workingEntities -= 1;
             if (status == EntityStatus.Dead) {
                 enemy.status = EntityStatus.Dead;
+                EndCombat();
             }
         }
         if (workingEntities == 0) {
@@ -251,6 +254,7 @@ public class CombatManager : MonoBehaviour
             dashButton.interactable = false;
             useModuleButton.interactable = false;
             GameStateManager.Instance.SetState(GameState.Planning);
+            print("SPECIALENDCOMBAT");
         } else
         {
             print("Endscene!");

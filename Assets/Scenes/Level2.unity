@@ -722,7 +722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 4.2544413
+      value: 4.2545357
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592728151454, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y

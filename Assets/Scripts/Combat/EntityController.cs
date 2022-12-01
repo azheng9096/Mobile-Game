@@ -37,6 +37,7 @@ public class EntityController : MonoBehaviour
         if (animator != null) {
             animator.SetBool("Dead", false);
         }
+        print(modules.Count);
         this.combatManager = combatManager;
         this.modules = modules;
         healthBar.maxValue = maxHealth;
@@ -229,10 +230,12 @@ public class EntityController : MonoBehaviour
             status = EntityStatus.Dead;
         } else if (modules.Count == 0) {
             status = EntityStatus.Empty;
+            print("DEBUGDEBUGDEBUG empty");
         } else {
             status = EntityStatus.Active;
         }
         combatManager.UpdateStatus(this, status);
+
     }
 
     public float GetEntityHP() {

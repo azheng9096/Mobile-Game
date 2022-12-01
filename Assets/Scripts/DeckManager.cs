@@ -21,6 +21,8 @@ public class DeckManager : MonoBehaviour
     }
 
     void Start() {
+        // Load deck from saved deck
+        SetDeck(PlayerSavedData.playerDeck);
     }
 
     public IEnumerator checkForGeneration()
@@ -40,8 +42,10 @@ public class DeckManager : MonoBehaviour
             
             // regeneration
             deck.Clear();
+            ExtendDeck(ModulesGenerator.instance.generateRandomModules(10));
             DeckChangedCallback.Invoke();
-            DeckGenerator.instance.GenerateDeck();
+            
+            // DeckGenerator.instance.GenerateDeck();
         }
     }
 
