@@ -30,6 +30,7 @@ public class EntityController : MonoBehaviour
 
     [SerializeField] AttackController attackController;
     [SerializeField] DroneController droneController;
+    [SerializeField] HealController healController;
 
     public EntityController curTarget = null;
     public Module curMod = null;
@@ -114,8 +115,67 @@ public class EntityController : MonoBehaviour
                 }
     }
 
+    public void HealLifePoints(float hp){
+        healthBar.value += hp;
+        if(healthBar.value > healthBar.maxValue){
+            healthBar.value = healthBar.maxValue;
+        }
+    }
+
+    public void IncreaseMaxLifePoints(float hp, bool fullHeal){
+        healthBar.maxValue += hp;
+        if(fullHeal){
+            healthBar.value = healthBar.maxValue;
+        }
+    }
+
     IEnumerator UseModule_Routine(Module mod, EntityController target) {
         
+        switch(mod.moduleData.type){
+            case ModuleType.Shoot:
+                if (animator != null) {
+                    animator.SetTrigger(mod.moduleData.animName != "" ? mod.moduleData.animName : mod.moduleData.GetModuleType());
+                    if (mod.moduleData.type == ModuleType.Shoot && attackController != null) {
+                        attackController.Activate(this, mod.moduleData.animName);
+                    }
+                }
+                curTarget = target;
+                curMod = mod;   
+                break;
+            case ModuleType.Melee:
+                if (animator != null) {
+                    animator.SetTrigger(mod.moduleData.animName != "" ? mod.moduleData.animName : mod.moduleData.GetModuleType());
+                    if (mod.moduleData.type == ModuleType.Shoot && attackController != null) {
+                        attackController.Activate(this, mod.moduleData.animName);
+                    }
+                }
+                curTarget = target;
+                curMod = mod;   
+                break;
+            case ModuleType.Support:
+                if (mod.moduleData.specialEffect == "block") {
+                    if (animator != null) {
+                        animator.SetBool("Blocking", true);
+                    }
+                    blocking = true;
+                    yield return new WaitForSeconds(1.5f);
+                    blocking = false;
+                    if (animator != null) {
+                        animator.SetBool("Blocking", false);
+                    }
+                }
+                break;
+            case ModuleType.Drone:
+                droneController.init(this, target, mod);
+                break;
+            case ModuleType.Heal:
+                healController.init(this, mod);
+                break;
+            default:
+                break;
+        }
+
+        /*
         if (mod.moduleData.type == ModuleType.Shoot || mod.moduleData.type == ModuleType.Melee) {
             if (animator != null) {
                 animator.SetTrigger(mod.moduleData.animName != "" ? mod.moduleData.animName : mod.moduleData.GetModuleType());
@@ -141,7 +201,8 @@ public class EntityController : MonoBehaviour
         {
             //do drone stuff
             droneController.init(this, target, mod);
-        }
+        } 
+        */
         if (modules.Count == 0 ) {
             if(this == combatManager.player)
                 combatManager.UpdateStatus(this, EntityStatus.Empty);

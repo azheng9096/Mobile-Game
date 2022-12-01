@@ -27,9 +27,11 @@ public class ModuleData : ScriptableObject
                 return "Support";
             case ModuleType.Drone:
                 return "Drone";
+            case ModuleType.Heal:
+                return "Heal";
         }
         return "";
     }
 }
 
-public enum ModuleType {Melee, Shoot, Support, Drone};
+public enum ModuleType {Melee, Shoot, Support, Drone, Heal};
