@@ -19,6 +19,7 @@ public class CombatManager : MonoBehaviour
 
     [SerializeField] public EntityController player;
     [SerializeField] EntityController enemy;
+    [SerializeField] float enemyHealth = 50f;
 
     [SerializeField]int workingEntities = 2;
     bool useOnCooldown = false;
@@ -93,7 +94,7 @@ public class CombatManager : MonoBehaviour
         if (enemy != null)
         {
             workingEntities += 1;
-            enemy.Init(this, modEnemy, 50f, 50f);
+            enemy.Init(this, modEnemy, enemyHealth, 50f);
             
         }
     }

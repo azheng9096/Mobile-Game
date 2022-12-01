@@ -26,6 +26,7 @@ public class EntityController : MonoBehaviour
     bool dashing = false;
     bool blocking = false;
     [SerializeField] Animator animator;
+    [SerializeField] float deathTime = 0.3f;
 
     [SerializeField] AttackController attackController;
     [SerializeField] DroneController droneController;
@@ -214,9 +215,10 @@ public class EntityController : MonoBehaviour
             animator.SetBool("Dead", true);
         }
         status = EntityStatus.Dead;
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(deathTime);
         if (this == combatManager.player)
         {
+            yield return new WaitForSeconds(5f);
             FindObjectOfType<DeathUI>().ShowDeath();
         }
         yield return new WaitForSeconds(1f);
