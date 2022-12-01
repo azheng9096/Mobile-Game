@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1027436625, guid: 993472273bff4364cad7257620cfa4f8, type: 3}
+    - target: {fileID: 5118180060046885689, guid: d30305c8a77208d4a937195a7ad670c1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5118180060046885691, guid: d30305c8a77208d4a937195a7ad670c1, type: 3}
       propertyPath: m_Controller
       value: 
@@ -154,6 +158,10 @@ PrefabInstance:
       propertyPath: planningHealthBar
       value: 
       objectReference: {fileID: 1736519478}
+    - target: {fileID: 5118180060046885702, guid: d30305c8a77208d4a937195a7ad670c1, type: 3}
+      propertyPath: attackPattern.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 50e261f157cddb240ab8727333fe1412, type: 2}
     - target: {fileID: 5118180060046885702, guid: d30305c8a77208d4a937195a7ad670c1, type: 3}
       propertyPath: attackPattern.Array.data[2]
       value: 
@@ -548,6 +556,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2298372432622807666, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1072231425}
+    - target: {fileID: 2298372432622807666, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: nextLevelName
+      value: Level3
+      objectReference: {fileID: 0}
     - target: {fileID: 2357713155554762391, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -703,6 +719,10 @@ PrefabInstance:
     - target: {fileID: 4724956592465830497, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: orthographic size
+      value: 4.2544413
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592728151454, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -899,6 +919,10 @@ PrefabInstance:
     - target: {fileID: 4724956593738919034, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_Name
       value: Core
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724956593738919034, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4724956593738919035, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_RootOrder
