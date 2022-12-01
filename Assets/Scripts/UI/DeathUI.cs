@@ -28,7 +28,7 @@ public class DeathUI : MonoBehaviour
 
         //maybe add a sort of transition animation
         GameStateManager.Instance.SetState(GameState.Cutscene);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("anna_dev");
     }
     public void quitGame()
     {
