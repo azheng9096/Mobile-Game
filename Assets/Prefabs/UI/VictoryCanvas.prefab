@@ -119,6 +119,8 @@ MonoBehaviour:
   ModuleSlots: {fileID: 115537572956552041}
   ModuleSlotPrefab: {fileID: 526282830341588876, guid: 5850ce629da8e404f992e53f661f0bb2, type: 3}
   InfoDisplay: {fileID: 115537571660125893}
+  player: {fileID: 0}
+  nextLevelName: nextLevel
 --- !u!1 &115537571174339171
 GameObject:
   m_ObjectHideFlags: 0

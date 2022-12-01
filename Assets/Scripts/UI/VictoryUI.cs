@@ -15,6 +15,10 @@ public class VictoryUI : MonoBehaviour
     [SerializeField] EntityController player;
     [SerializeField] string nextLevelName = "nextLevel";
 
+
+    [SerializeField] bool useFixedSet = false;
+
+
     List<Module> salvageModules = new List<Module>();
     public delegate void OnSalvageModulesChanged();
     public OnSalvageModulesChanged SalvageModulesChangedCallback;
@@ -94,6 +98,7 @@ public class VictoryUI : MonoBehaviour
         PlayerSavedData.maxHP = player.GetEntityMaxHP();
         PlayerSavedData.playerDeck = DeckManager.instance.deck;
 
+        GameStateManager.Instance.SetState(GameState.Cutscene);
         // Load next level
         SceneManager.LoadScene(nextLevelName);
     }
@@ -104,6 +109,15 @@ public class VictoryUI : MonoBehaviour
         if (newState == GameState.Victory) {
             print("now displaying victory ui");
             victoryUI.SetActive(true);
+
+            // set salvage modules
+            if (ModulesGenerator.instance != null) {
+                if (!useFixedSet)
+                    SetModules(ModulesGenerator.instance.generateRandomModules(5));
+                else
+                    SetModules(ModulesGenerator.instance.generateFixedSet());
+            }
+
             ListModules();
         }
     }

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7672145228408229087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7942209919141299977}
+  - component: {fileID: 7692638809408973178}
+  m_Layer: 0
+  m_Name: ModulesGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7942209919141299977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672145228408229087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7692638809408973178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672145228408229087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a77ead0f89af294da63f2b0ff5faa25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockedModules:
+  - {fileID: 11400000, guid: 40cadbde0cb9189418c209f26f0a3d3c, type: 2}
+  - {fileID: 11400000, guid: 14813f11810fc5c46be3dcfa5cc0b037, type: 2}
+  - {fileID: 11400000, guid: 72e00b28b199cbf44a7505e47abc2a94, type: 2}
+  - {fileID: 11400000, guid: c24c878359f84294e8c48a9876eeba15, type: 2}
+  fixedGenModuleSet:
+  - data: {fileID: 11400000, guid: 50e261f157cddb240ab8727333fe1412, type: 2}
+    amount: 3
+  generateDeckOnStart: 0
+  generateRandomDeckOnStart: 0
+  generateRandomModuleAmountOnStart: 0
+  fixedOnStartSet:
+  - data: {fileID: 11400000, guid: 40cadbde0cb9189418c209f26f0a3d3c, type: 2}
+    amount: 5
+  - data: {fileID: 11400000, guid: 14813f11810fc5c46be3dcfa5cc0b037, type: 2}
+    amount: 10
+  - data: {fileID: 11400000, guid: 72e00b28b199cbf44a7505e47abc2a94, type: 2}
+    amount: 10
