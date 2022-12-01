@@ -60,6 +60,7 @@ public class PlanningUI : MonoBehaviour
          planningUI.SetActive(GameStateManager.Instance.CurrentGameState == GameState.Planning);
         if(GameStateManager.Instance.CurrentGameState == GameState.Planning)
         {
+            print("yo!");
             planningUI.GetComponent<Animator>().SetTrigger("Show");
         }
     }
@@ -294,7 +295,11 @@ public class PlanningUI : MonoBehaviour
             /*&& GameStateManager.Instance.PreviousGameState == GameState.Combat*/
             )
         {
-            print("now planning");
+            //if (planningUI.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == )
+            //{
+
+            //}
+            print("now planning!!!!!");
             planningUI.SetActive(true);
             planningUI.GetComponent<Animator>().SetTrigger("Show");
             ListModules();

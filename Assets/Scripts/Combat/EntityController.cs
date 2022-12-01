@@ -222,6 +222,7 @@ public class EntityController : MonoBehaviour
             yield return new WaitForSeconds(5f);
             FindObjectOfType<DeathUI>().ShowDeath();
         }
+
         yield return new WaitForSeconds(1f);
         UpdateEntityStatus();
         Destroy(gameObject);

@@ -35,6 +35,7 @@ public class ModulesGenerator : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
 
         if (generateDeckOnStart) {
+            StartCoroutine(DeckManager.instance.SetDeck(new List<Module>()));
             if (generateRandomDeckOnStart) {
                 DeckManager.instance.ExtendDeck(generateRandomModules(generateRandomModuleAmountOnStart));
             } else {

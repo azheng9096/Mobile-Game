@@ -39,7 +39,7 @@ public class TextPopUpController : MonoBehaviour
             transform.position = transform.position + new Vector3(0, moveSpeed * Time.deltaTime, 0);
             text.color = new Color(text.color.r, text.color.g, text.color.b, Mathf.Max(text.color.a - fadeSpeed * Time.deltaTime, 0));
             text.fontSize = Mathf.Max(text.fontSize - fontSpeed * Time.deltaTime, 0);
-            print(text.fontSize + " " + text.color.a);
+            //print(text.fontSize + " " + text.color.a);
         }
     }
 

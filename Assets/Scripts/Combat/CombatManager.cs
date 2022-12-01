@@ -95,7 +95,7 @@ public class CombatManager : MonoBehaviour
         if (enemy != null)
         {
             workingEntities += 1;
-            enemy.Init(this, modEnemy, enemyHealth, 50f);
+            enemy.Init(this, modEnemy, enemyHealth, enemyHealth);
         }
     }
 
@@ -242,7 +242,9 @@ public class CombatManager : MonoBehaviour
     {
         GameStateManager.Instance.SetState(GameState.Cutscene);
         yield return new WaitForSeconds(2f);
-        GameStateManager.Instance.SetState(GameState.Victory);
+
+        if(player.status!=EntityStatus.Dead)
+            GameStateManager.Instance.SetState(GameState.Victory);
     }
 
     void EndCombat() {

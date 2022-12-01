@@ -15,8 +15,9 @@ MonoBehaviour:
   modName: Stab
   sprite: {fileID: 21300000, guid: f0dbae5f047d2224fbd8f7947be7a075, type: 3}
   descriptor: Generate a laser sword
-  animDelay: 0.4
+  animName: Melee
   type: 0
+  mode: 0
   damage: 20
   accuracy: 100
   cooldown: 1
