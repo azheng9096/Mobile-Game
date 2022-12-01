@@ -25,12 +25,21 @@ public class PlanningUIDragFollower : MonoBehaviour
     public void FollowDrag() {
         Vector2 position;
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            (RectTransform)canvas.transform,
-            Input.GetTouch(0).position,
-            canvas.worldCamera,
-            out position
-        );
+        try{ // touch
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                (RectTransform)canvas.transform,
+                Input.GetTouch(0).position,
+                canvas.worldCamera,
+                out position
+            );
+        } catch(System.ArgumentException) { // mouse
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                (RectTransform)canvas.transform,
+                Input.mousePosition,
+                canvas.worldCamera,
+                out position
+            );
+        }
 
         transform.position = canvas.transform.TransformPoint(position);
     }
