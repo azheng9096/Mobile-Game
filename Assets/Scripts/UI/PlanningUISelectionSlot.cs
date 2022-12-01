@@ -61,7 +61,8 @@ public class PlanningUISelectionSlot : MonoBehaviour, IPointerClickHandler, IBeg
             return;
         }
 
-        if (eventData.pointerId == 0) {
+        // 0 = touch, -1 = left click mouse
+        if (eventData.pointerId == 0 || eventData.pointerId == -1) {
             OnModuleClicked?.Invoke(this);
         }
     }

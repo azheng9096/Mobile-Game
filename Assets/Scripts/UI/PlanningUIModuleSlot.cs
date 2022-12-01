@@ -50,7 +50,8 @@ public class PlanningUIModuleSlot : MonoBehaviour, IPointerClickHandler, IBeginD
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-        if (eventData.pointerId == 0) {
+        // 0 = touch, -1 = left click mouse
+        if (eventData.pointerId == 0 || eventData.pointerId == -1) {
             OnModuleClicked?.Invoke(this);
         }
     }
