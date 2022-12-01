@@ -18,7 +18,9 @@ public class CombatManager : MonoBehaviour
     Button useModuleButton;
 
     [SerializeField] public EntityController player;
+    [SerializeField] float playerHealth = 50f;
     [SerializeField] EntityController enemy;
+    [SerializeField] float enemyHealth = 50f;
 
     [SerializeField]int workingEntities = 2;
     bool useOnCooldown = false;
@@ -87,13 +89,13 @@ public class CombatManager : MonoBehaviour
         if (player != null)
         {
             workingEntities += 1;
-            player.Init(this, modules, 50f, 50f);
+            player.Init(this, modules, playerHealth, 50f);
             
         }
         if (enemy != null)
         {
             workingEntities += 1;
-            enemy.Init(this, modEnemy, 50f, 50f);
+            enemy.Init(this, modEnemy, enemyHealth, 50f);
             
         }
     }

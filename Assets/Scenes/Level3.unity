@@ -839,6 +839,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1589558158}
+    - target: {fileID: 4724956593771551146, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: enemyHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724956593771551146, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: playerHealth
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6470994511303047240, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2039,6 +2047,7 @@ MonoBehaviour:
   TextPopUpPrefab: {fileID: 7241006826954038281, guid: 8e764b5dd4fd8994988a5f420b881465, type: 3}
   TextPopUpTarget: {fileID: 6103432188749607569}
   animator: {fileID: 6103432190626898937}
+  deathTime: 1.5
   attackController: {fileID: 1145037999}
   droneController: {fileID: 0}
   curTarget: {fileID: 0}

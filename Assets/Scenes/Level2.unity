@@ -164,11 +164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5118180060198129308, guid: d30305c8a77208d4a937195a7ad670c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.75
+      value: 4.2799997
       objectReference: {fileID: 0}
     - target: {fileID: 5118180060198129308, guid: d30305c8a77208d4a937195a7ad670c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.49
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5118180060198129308, guid: d30305c8a77208d4a937195a7ad670c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1262,11 +1262,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3960435548089395162, guid: cc081c30fb2d69646aefe57f7114fe3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.42
+      value: -4.04
       objectReference: {fileID: 0}
     - target: {fileID: 3960435548089395162, guid: cc081c30fb2d69646aefe57f7114fe3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.23
+      value: -1.14
       objectReference: {fileID: 0}
     - target: {fileID: 3960435548089395162, guid: cc081c30fb2d69646aefe57f7114fe3d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1308,6 +1308,14 @@ PrefabInstance:
       propertyPath: planningHealthBar
       value: 
       objectReference: {fileID: 1563781657}
+    - target: {fileID: 3960435548303486775, guid: cc081c30fb2d69646aefe57f7114fe3d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960435548303486775, guid: cc081c30fb2d69646aefe57f7114fe3d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5766645291548369214, guid: cc081c30fb2d69646aefe57f7114fe3d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
