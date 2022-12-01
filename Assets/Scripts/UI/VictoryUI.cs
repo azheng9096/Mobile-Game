@@ -18,6 +18,10 @@ public class VictoryUI : MonoBehaviour
 
     [SerializeField] bool useFixedSet = false;
 
+    // for randomly generated modules, used only if useFixedSet is false
+    [SerializeField] int minRandSalvagedModules = 1;
+    [SerializeField] int maxRandSalvagedModules = 5;
+
 
     List<Module> salvageModules = new List<Module>();
     public delegate void OnSalvageModulesChanged();
@@ -37,6 +41,11 @@ public class VictoryUI : MonoBehaviour
     {
         // Initialize Listener
         SalvageModulesChangedCallback += ListModules;
+
+        // Error Check
+        if (minRandSalvagedModules > maxRandSalvagedModules) {
+            Debug.LogError("minSalvagedModules cannot be greater than maxSalvagedModules");
+        }
     }
 
     public void AddModule(Module module) {
@@ -112,10 +121,13 @@ public class VictoryUI : MonoBehaviour
 
             // set salvage modules
             if (ModulesGenerator.instance != null) {
-                if (!useFixedSet)
-                    SetModules(ModulesGenerator.instance.generateRandomModules(5));
-                else
+                if (!useFixedSet){
+                    int num = Random.Range(minRandSalvagedModules, maxRandSalvagedModules + 1);
+                    SetModules(ModulesGenerator.instance.generateRandomModules(num));
+                }
+                else {
                     SetModules(ModulesGenerator.instance.generateFixedSet());
+                }
             }
 
             ListModules();
