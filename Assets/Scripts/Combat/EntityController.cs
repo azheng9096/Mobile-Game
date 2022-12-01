@@ -164,6 +164,10 @@ public class EntityController : MonoBehaviour
                         animator.SetBool("Blocking", false);
                     }
                 }
+                if(mod.moduleData.specialEffect == "Hardens armor"){
+                    //with hardened armor, reduce damage by (module damage) amount for a certain amount of time
+                    healController.init(this,mod);
+                }
                 break;
             case ModuleType.Drone:
                 droneController.init(this, target, mod);
@@ -250,8 +254,18 @@ public class EntityController : MonoBehaviour
                 attackController.EndActivate();
             }
         }
-        healthBar.value -= damage;
-        planningHealthBar.value -= damage;
+        if(healController.isArmored){
+            float actualDamage = damage - healController.damageBlocking;
+            if(actualDamage < 0){
+                actualDamage = 0;
+                CreateTextPopUp("Negated", new Color(255, 130, 140, 255));
+            }
+            healthBar.value -= actualDamage;
+            planningHealthBar.value -= actualDamage;
+        } else {
+            healthBar.value -= damage;
+            planningHealthBar.value -= damage;
+        }
         if (healthBar.value <= 0) {
             StartCoroutine(Die());
         }
