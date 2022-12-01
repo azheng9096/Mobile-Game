@@ -88,8 +88,6 @@ public class EntityController : MonoBehaviour
             UpdateEntityStatus();
             return;
         }
-        print("Module used");
-        print(modules.Count);
         Module mod = modules[modules.Count - 1];
         StartCoroutine(combatManager.cardCooldown(this, mod));
         modules.RemoveAt(modules.Count - 1);
@@ -119,9 +117,6 @@ public class EntityController : MonoBehaviour
         if (mod.moduleData.type == ModuleType.Shoot || mod.moduleData.type == ModuleType.Melee) {
             if (animator != null) {
                 animator.SetTrigger(mod.moduleData.animName != "" ? mod.moduleData.animName : mod.moduleData.GetModuleType());
-                if (mod.moduleData.type == ModuleType.Shoot && attackController != null) {
-                    attackController.Activate(this, mod.moduleData.animName);
-                }
             }
             curTarget = target;
             curMod = mod;
@@ -136,6 +131,13 @@ public class EntityController : MonoBehaviour
                 if (animator != null) {
                     animator.SetBool("Blocking", false);
                 }
+            } else if (mod.moduleData.specialEffect == "CounterShield") {
+                curTarget = target;
+                curMod = mod;
+                if (attackController != null) {
+                    blocking = true;
+                    ActivateAttack("CounterShield");
+                }
             }
         } else if (mod.moduleData.type == ModuleType.Drone)
         {
@@ -148,15 +150,24 @@ public class EntityController : MonoBehaviour
             status = EntityStatus.Empty;
         }
     }
+
+    public void ActivateAttack(string name) {
+        if (attackController != null) {
+            attackController.Activate(this, name, curMod.moduleData);
+        }
+    }
+
+    public void HaltBlock() {
+        blocking = false;
+    }
+
     public void HandleMiss() {
         print("Miss");
         CreateTextPopUp("Miss", Color.white);
     }
 
     void CreateTextPopUp(string text, Color color) {
-        print("Creating popup " + text);
         GameObject textPopUp = Instantiate(TextPopUpPrefab, TextPopUpTarget.position, Quaternion.identity, transform);
-        print(textPopUp);
         TextPopUpController textPopUpController = textPopUp.GetComponent<TextPopUpController>();
         textPopUpController.Init(text, color);
         textPopUpController.Check();
@@ -170,12 +181,9 @@ public class EntityController : MonoBehaviour
             StartCoroutine(FindObjectOfType<CameraShaker>().Shake(.1f, .1f));
             print("blocked");
             CreateTextPopUp("Blocked", new Color(255, 130, 140, 255));
-            /*
-             * blocking = false;
-            
-            if (animator != null) {
-                animator.SetBool("Blocking", false);
-            }*/
+            if (attackController != null) {
+                attackController.Blocked();
+            }
         } else {
             StartCoroutine(FindObjectOfType<CameraShaker>().Shake(.1f, .3f));
             StartCoroutine(TakeDamage_Routine(damage));
@@ -186,7 +194,7 @@ public class EntityController : MonoBehaviour
         if (animator != null) {
             animator.SetTrigger("Hurt");
             if (attackController != null) {
-                attackController.EndActivate();
+                attackController.Interrupt();
             }
         }
         healthBar.value -= damage;

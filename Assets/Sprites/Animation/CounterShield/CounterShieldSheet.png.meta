@@ -601,9 +601,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CounterShieldSheet_6: -1621332423
+      CounterShieldSheet_20: -1074259103
       CounterShieldSheet_17: 1807825913
-      CounterShieldSheet_14: -1869873632
+      CounterShieldSheet_6: -1621332423
       CounterShieldSheet_10: -339611305
       CounterShieldSheet_9: -1649802210
       CounterShieldSheet_18: 372412200
@@ -622,7 +622,7 @@ TextureImporter:
       CounterShieldSheet_0: -1510468060
       CounterShieldSheet_19: 503460291
       CounterShieldSheet_8: 1618939083
-      CounterShieldSheet_20: -1074259103
+      CounterShieldSheet_14: -1869873632
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

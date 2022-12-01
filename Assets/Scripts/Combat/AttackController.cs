@@ -1,56 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class AttackController : MonoBehaviour
 {
-    public float xOffset = 0.0f;
-    public float yOffset = 0.0f;
-    public float length = 1f;
+    public List<AttackType> attackTypes;
 
-    protected SpriteRenderer spriteRenderer;
-
-    public Transform parent;
-
-    public bool liveMove = false;
-
-    protected Animator animator;
+    Dictionary<string, AttackType> attackTypeDict;
 
     protected EntityController caller;
-    // Start is called before the first frame update
+
+    protected ModuleData mod;
+
     virtual public void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
-        moveSelf();
-        spriteRenderer.enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        #if UNITY_EDITOR
-        if (liveMove) {
-            moveSelf();
+        attackTypeDict = new Dictionary<string, AttackType>();
+        foreach (AttackType attackType in attackTypes) {
+            attackTypeDict.Add(attackType.typeName, attackType);
         }
-        #endif
     }
-    virtual public void Activate(EntityController caller, string type = "") {
+    virtual public void Activate(EntityController caller, string type, ModuleData mod = null) {
+        this.mod = mod;
         this.caller = caller;
-        spriteRenderer.enabled = true;
-        animator.SetTrigger("Activate");
+        if (attackTypeDict.ContainsKey(type)) {
+            attackTypeDict[type].Activate(mod, AttackCallback);
+        }
     }
-    virtual public void EndActivate() {
-        spriteRenderer.enabled = false;
+    
+    virtual public void Blocked() {
+        foreach (AttackType attackType in attackTypes) {
+            if (attackType.spriteRenderer.enabled) {
+                attackType.Blocked();
+            }
+        }
     }
-    virtual protected void moveSelf() {
-        Vector3 pos = transform.position;
-        pos.x = xOffset + (length * 2) + parent.position.x;
-        pos.y = yOffset + parent.position.y;
-        transform.position = pos;
-        spriteRenderer.size = new Vector2(length, spriteRenderer.size.y);
+    virtual public void Interrupt() {
+        foreach (AttackType attackType in attackTypes) {
+            if (attackType.spriteRenderer.enabled) {
+                attackType.Interrupt();
+            }
+        }
     }
-
+    virtual public void AttackCallback(string type) {
+        if (type == "dealDamage") {
+            dealDamage();
+        } else if (type == "HaltBlock") {
+            caller.HaltBlock();
+        }
+    }
     virtual public void dealDamage() {
         caller.dealDamage();
     }
