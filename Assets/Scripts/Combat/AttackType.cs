@@ -29,16 +29,13 @@ public class AttackType : MonoBehaviour
         anim.SetTrigger("Activate");
     }
     virtual public void dealDamage() {
-        if (!isInterrupted) {
-            if (callback != null) {
-                callback("dealDamage");
-            }
+        if (callback != null) {
+            callback("dealDamage");
         }
     }
 
     virtual public void Interrupt() {
-        isInterrupted = true;
-        print("interrupt");
+        anim.SetTrigger("Interrupt");
         spriteRenderer.enabled = false;
     }
     

@@ -9,6 +9,7 @@ public class CounterAttackType : AttackType
     public AttackType laser;
     public override void Activate(ModuleData mod, AttackCallback callback = null)
     {
+        print("OHGOEHF:OEK");
         base.Activate(mod, callback);
         StartCoroutine(DelayDissolve());
     }

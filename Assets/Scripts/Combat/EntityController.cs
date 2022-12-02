@@ -30,6 +30,7 @@ public class EntityController : MonoBehaviour
 
     [SerializeField] AttackController attackController;
     [SerializeField] DroneController droneController;
+    [SerializeField] HealController healController;
 
     public EntityController curTarget = null;
     public Module curMod = null;
@@ -112,8 +113,75 @@ public class EntityController : MonoBehaviour
                 }
     }
 
+    public void HealLifePoints(float hp){
+        healthBar.value += hp;
+        if(healthBar.value > healthBar.maxValue){
+            healthBar.value = healthBar.maxValue;
+        }
+    }
+
+    public void IncreaseMaxLifePoints(float hp, bool fullHeal){
+        healthBar.maxValue += hp;
+        if(fullHeal){
+            healthBar.value = healthBar.maxValue;
+        }
+    }
+
     IEnumerator UseModule_Routine(Module mod, EntityController target) {
         
+        switch(mod.moduleData.type){
+            case ModuleType.Shoot:
+                if (animator != null) {
+                    animator.SetTrigger(mod.moduleData.animName != "" ? mod.moduleData.animName : mod.moduleData.GetModuleType());
+                }
+                curTarget = target;
+                curMod = mod;   
+                break;
+            case ModuleType.Melee:
+                if (animator != null) {
+                    animator.SetTrigger(mod.moduleData.animName != "" ? mod.moduleData.animName : mod.moduleData.GetModuleType());
+                    if (mod.moduleData.type == ModuleType.Shoot && attackController != null) {
+                        attackController.Activate(this, mod.moduleData.animName);
+                    }
+                }
+                curTarget = target;
+                curMod = mod;   
+                break;
+            case ModuleType.Support:
+                if (mod.moduleData.specialEffect == "block") {
+                    if (animator != null) {
+                        animator.SetBool("Blocking", true);
+                    }
+                    blocking = true;
+                    yield return new WaitForSeconds(1.5f);
+                    blocking = false;
+                    if (animator != null) {
+                        animator.SetBool("Blocking", false);
+                    }
+                } else if (mod.moduleData.specialEffect == "CounterShield") {
+                curTarget = target;
+                curMod = mod;
+                if (attackController != null) {
+                    blocking = true;
+                    ActivateAttack("CounterShield");
+                }
+            }
+                if(mod.moduleData.specialEffect == "Hardens armor"){
+                    //with hardened armor, reduce damage by (module damage) amount for a certain amount of time
+                    healController.init(this,mod);
+                }
+                break;
+            case ModuleType.Drone:
+                droneController.init(this, target, mod);
+                break;
+            case ModuleType.Heal:
+                healController.init(this, mod);
+                break;
+            default:
+                break;
+        }
+
+        /*
         if (mod.moduleData.type == ModuleType.Shoot || mod.moduleData.type == ModuleType.Melee) {
             if (animator != null) {
                 animator.SetTrigger(mod.moduleData.animName != "" ? mod.moduleData.animName : mod.moduleData.GetModuleType());
@@ -143,7 +211,8 @@ public class EntityController : MonoBehaviour
         {
             //do drone stuff
             droneController.init(this, target, mod);
-        }
+        } 
+        */
         if (modules.Count == 0 ) {
             if(this == combatManager.player)
                 combatManager.UpdateStatus(this, EntityStatus.Empty);
@@ -191,16 +260,28 @@ public class EntityController : MonoBehaviour
     }
 
     IEnumerator TakeDamage_Routine(float damage) {
-        if (animator != null) {
-            animator.SetTrigger("Hurt");
-            if (attackController != null) {
-                attackController.Interrupt();
+        if (status != EntityStatus.Dead) {
+            float actualDamage = damage;
+            if (healController != null && healController.isArmored)
+            {
+                actualDamage = damage - healController.damageBlocking;
+                if (actualDamage < 0)
+                {
+                    actualDamage = 0;
+                    CreateTextPopUp("Negated", new Color(255, 130, 140, 255));
+                }
             }
-        }
-        healthBar.value -= damage;
-        planningHealthBar.value -= damage;
-        if (healthBar.value <= 0) {
-            StartCoroutine(Die());
+            if (animator != null && actualDamage != 0) {
+                animator.SetTrigger("Hurt");
+                if (attackController != null) {
+                    attackController.Interrupt();
+                }
+            }
+            healthBar.value -= actualDamage;
+            planningHealthBar.value -= actualDamage;
+            if (healthBar.value <= 0) {
+                StartCoroutine(Die());
+            }
         }
         yield return new WaitForSeconds(0.1f);
     }

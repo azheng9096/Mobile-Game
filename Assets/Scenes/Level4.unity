@@ -600,7 +600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 5.624235
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419205, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: _targetWidth
@@ -876,7 +876,7 @@ PrefabInstance:
       objectReference: {fileID: 1043001003}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: generateDeckOnStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: fixedOnStartSet.Array.size
@@ -1837,6 +1837,7 @@ MonoBehaviour:
   deathTime: 0.3
   attackController: {fileID: 8797778913502186000}
   droneController: {fileID: 681502125}
+  healController: {fileID: 0}
   curTarget: {fileID: 0}
 --- !u!1 &5118180060508182745
 GameObject:

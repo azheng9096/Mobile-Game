@@ -10,6 +10,8 @@ public class RainAttackType : AttackType
     public override void Start() {
         base.Start();
         rainBack.enabled = false;
+        anim.SetBool("Front", true);
+        backAnim.SetBool("Front", false);
     }
     public override void Activate(ModuleData mod, AttackCallback callback = null)
     {
@@ -17,10 +19,13 @@ public class RainAttackType : AttackType
         this.isInterrupted = false;
         this.mod = mod;
         this.callback = callback;
+        print("there");
+        StartCoroutine(DelayAttack());
     }
     
     IEnumerator DelayAttack() {
         yield return new WaitForSeconds(upTime);
+        print("hi");
         anim.SetTrigger("Activate");
         backAnim.SetTrigger("Activate");
         spriteRenderer.enabled = true;
