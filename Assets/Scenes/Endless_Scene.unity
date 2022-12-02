@@ -1169,7 +1169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 4.78125
+      value: 6.3770814
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592722366685, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1209,7 +1209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592767799825, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00076293945
+      value: 0.00079345703
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592862775104, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1494,22 +1494,6 @@ PrefabInstance:
     - target: {fileID: 4724956593779913712, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.000030517578
-      objectReference: {fileID: 0}
-    - target: {fileID: 4724956593779913713, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
-      propertyPath: m_Spacing.x
-      value: 13.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4724956593779913713, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
-      propertyPath: m_Spacing.y
-      value: 14.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4724956593779913713, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
-      propertyPath: m_CellSize.x
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 4724956593779913713, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
-      propertyPath: m_CellSize.y
-      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 4724956593845166800, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2500,6 +2484,10 @@ MonoBehaviour:
   unlockOrder:
   - data: {fileID: 11400000, guid: 4e9c1a33a385d104090862a041ffd34a, type: 2}
     amount: 1
+  - data: {fileID: 11400000, guid: 50e261f157cddb240ab8727333fe1412, type: 2}
+    amount: 2
+  - data: {fileID: 11400000, guid: 50e261f157cddb240ab8727333fe1412, type: 2}
+    amount: 3
   - data: {fileID: 11400000, guid: 4e9c1a33a385d104090862a041ffd34a, type: 2}
     amount: 3
   - data: {fileID: 11400000, guid: c24c878359f84294e8c48a9876eeba15, type: 2}
@@ -2532,6 +2520,7 @@ MonoBehaviour:
   - {fileID: 5118180060198129309, guid: d30305c8a77208d4a937195a7ad670c1, type: 3}
   - {fileID: 1033791266654753219, guid: 6818ee69acce50c418761d86d4daf244, type: 3}
   - {fileID: 8823320812427635271, guid: 7132bfc4cfe71ff43afe219224b53878, type: 3}
+  - {fileID: 1178864124627540268, guid: b002e1ce7f485dd4390401c6b9b7b8c4, type: 3}
   currentEnemy: {fileID: 0}
   background: {fileID: 304964439}
   backgroundColors:

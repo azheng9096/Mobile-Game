@@ -23,6 +23,7 @@ public class CombatManager : MonoBehaviour
 
     [SerializeField]int workingEntities = 2;
     bool useOnCooldown = false;
+    bool resetHealth = false;
     void Awake() {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
     }
@@ -31,6 +32,9 @@ public class CombatManager : MonoBehaviour
     }
     
     void Start() {
+        if (resetHealth) {
+            PlayerSavedData.ResetSavedData();
+        }
         if (SceneManager.GetActiveScene().name != "Endless_Scene")
         {
             dashButton = HUDGroup.transform.Find("DashButton").GetComponent<Button>();

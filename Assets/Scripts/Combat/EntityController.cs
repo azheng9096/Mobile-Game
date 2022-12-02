@@ -31,6 +31,7 @@ public class EntityController : MonoBehaviour
     [SerializeField] AttackController attackController;
     [SerializeField] DroneController droneController;
     [SerializeField] HealController healController;
+    [SerializeField] bool doNotDestroy = false;
 
     public EntityController curTarget = null;
     public Module curMod = null;
@@ -317,6 +318,9 @@ public class EntityController : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         UpdateEntityStatus();
+        if (doNotDestroy) {
+            yield return new WaitForSeconds(5f);
+        }
         Destroy(gameObject);
     }
 
