@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.EventSystems;
+
 public class PlanningUI : MonoBehaviour
 {
     [SerializeField] GameObject planningUI;
@@ -16,6 +18,10 @@ public class PlanningUI : MonoBehaviour
 
     [SerializeField] PlanningUIDragFollower dragFollower;
     Module currentlyDraggedModule = null;
+
+
+    [SerializeField] ScrollRect modulesScrollRect;
+    Coroutine checkDrag;
 
 
     [SerializeField] PlanningUIInfoDisplay InfoDisplay;
@@ -79,8 +85,13 @@ public class PlanningUI : MonoBehaviour
             slot.Set(module);
 
             slot.OnModuleClicked += HandleModuleClick;
-            slot.OnModuleBeginDrag += HandleModuleSelection;
+            slot.OnModuleBeginDrag += HandleModuleBeginDrag;
             slot.OnModuleEndDrag += HandleEndDrag;
+
+            slot.OnModuleOnDrag += HandleModuleOnDrag;
+            slot.OnModulePointerDown += HandleModuleOnPointerDown;
+            slot.OnModulePointerUp += HandleModuleOnPointerUp;
+            slot.OnModulePointerExit += HandleModuleOnPointerExit;
 
             moduleSlotsCurrentState.Add(module, slot);
         }
@@ -148,18 +159,75 @@ public class PlanningUI : MonoBehaviour
     }
 
     // Handle Begin Drag
-    void HandleModuleSelection(PlanningUIModuleSlot moduleSlot) {
-        currentlyDraggedModule = moduleSlot.module;
+    void HandleModuleBeginDrag(PlanningUIModuleSlot moduleSlot, PointerEventData eventData) {
+        ExecuteEvents.Execute(modulesScrollRect.gameObject, eventData, ExecuteEvents.beginDragHandler);
 
-        InfoDisplay.DisplayModule(moduleSlot.module);
-        dragFollower.Toggle(true);
-        dragFollower.Set(moduleSlot.module);
+        /*
+        if (moduleSlot.module.planningAvailable && currentlyDraggedModule != null) {
+            // currentlyDraggedModule = moduleSlot.module;
+
+            InfoDisplay.DisplayModule(moduleSlot.module);
+            dragFollower.Toggle(true);
+            dragFollower.Set(moduleSlot.module);
+        }
+        */
+        
     }
 
     // Handle End Drag
-    void HandleEndDrag(PlanningUIModuleSlot moduleSlot) {
+    void HandleEndDrag(PlanningUIModuleSlot moduleSlot, PointerEventData eventData) {
+        ExecuteEvents.Execute(modulesScrollRect.gameObject, eventData, ExecuteEvents.endDragHandler);
+
         dragFollower.Toggle(false);
         currentlyDraggedModule = null;
+    }
+
+    // Handle On Drag
+    void HandleModuleOnDrag(PlanningUIModuleSlot moduleSlot, PointerEventData eventData) {
+        // Handle scroll
+        if (currentlyDraggedModule == null) {
+            ExecuteEvents.Execute(modulesScrollRect.gameObject, eventData, ExecuteEvents.dragHandler);
+        } 
+        
+        else if (moduleSlot.module.planningAvailable && currentlyDraggedModule != null) {
+            // Can handle drag here as well
+
+            // Sometimes currentlyDraggedModule is set to a module but it is not registered in OnBeginDrag
+            // In case of Coroutines like checkDrag, in which the event listeners are reliant on, better to implement drag here
+            InfoDisplay.DisplayModule(moduleSlot.module);
+            dragFollower.Toggle(true);
+            dragFollower.Set(moduleSlot.module);
+        }
+    }
+
+    // Handle On Pointer Down
+    void HandleModuleOnPointerDown(PlanningUIModuleSlot moduleSlot) {
+        checkDrag = StartCoroutine(StartTimer(moduleSlot.module));
+    } 
+
+    // Handle On Pointer Up
+    void HandleModuleOnPointerUp(PlanningUIModuleSlot moduleSlot) {
+        if (checkDrag != null) {
+            // print("STOP CHECK DRAG COROUTINE");
+            StopCoroutine(checkDrag);
+            checkDrag = null;
+        }
+    }
+
+    // Handle On Pointer Exit
+    void HandleModuleOnPointerExit(PlanningUIModuleSlot moduleSlot) {
+        if (checkDrag != null) {
+            // print("STOP CHECK DRAG COROUTINE");
+            StopCoroutine(checkDrag);
+            checkDrag = null;
+        }
+    }
+
+
+
+    IEnumerator StartTimer(Module module) {
+        yield return new WaitForSecondsRealtime(0.175f);
+        currentlyDraggedModule = module;
     }
 
 
@@ -173,13 +241,15 @@ public class PlanningUI : MonoBehaviour
 
     // Handle Begin Drag
     void HandleModuleSelection(PlanningUISelectionSlot selectionSlot) {
-        currentlyDraggedModule = selectionSlot.module;
+        if (selectionSlot.module.planningAvailable) {
+            currentlyDraggedModule = selectionSlot.module;
 
-        InfoDisplay.DisplayModule(selectionSlot.module);
-        dragFollower.Toggle(true);
-        dragFollower.Set(selectionSlot.module);
+            InfoDisplay.DisplayModule(selectionSlot.module);
+            dragFollower.Toggle(true);
+            dragFollower.Set(selectionSlot.module);
 
-        ClearSelection.Toggle(true);
+            ClearSelection.Toggle(true);
+        }
     }
 
     // Handle End Drag
@@ -196,8 +266,7 @@ public class PlanningUI : MonoBehaviour
             return;
         }
 
-        // TODO: need to handle swapping if needed
-        // Handle: 
+        // Handle swapping: 
             // Modules -> Empty Selection
             // Modules -> Existing Selection
             // Selection -> Empty Selection

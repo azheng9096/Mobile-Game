@@ -7,7 +7,7 @@ using TMPro;
 using System;
 using UnityEngine.EventSystems;
 
-public class PlanningUIModuleSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class PlanningUIModuleSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] Image icon;
     [SerializeField] TextMeshProUGUI text;
@@ -17,7 +17,8 @@ public class PlanningUIModuleSlot : MonoBehaviour, IPointerClickHandler, IBeginD
     [HideInInspector] public Module module;
 
 
-    public event Action<PlanningUIModuleSlot> OnModuleClicked, OnModuleBeginDrag, OnModuleEndDrag;
+    public event Action<PlanningUIModuleSlot> OnModuleClicked, OnModulePointerExit, OnModulePointerDown, OnModulePointerUp;
+    public event Action<PlanningUIModuleSlot, PointerEventData> OnModuleBeginDrag, OnModuleEndDrag, OnModuleOnDrag;
 
     Image raycastImage;
     bool draggable = true;
@@ -58,19 +59,46 @@ public class PlanningUIModuleSlot : MonoBehaviour, IPointerClickHandler, IBeginD
 
 
     public void OnBeginDrag(PointerEventData eventData) {
+        /*
         if (!draggable) {
             return;
         }
-        OnModuleBeginDrag?.Invoke(this);
+        */
+        OnModuleBeginDrag?.Invoke(this, eventData);
     }
 
     public void OnEndDrag(PointerEventData eventData) {
-        OnModuleEndDrag?.Invoke(this);
+        OnModuleEndDrag?.Invoke(this, eventData);
     }
 
     public void OnDrag(PointerEventData eventData) {
         // needed for OnBeginDrag() and OnEndDrag() to work
-        // no implementation needed
+        // no implementation needed - unless may want to use it for scroll priority issues
+
+        OnModuleOnDrag?.Invoke(this, eventData);
+    }
+
+
+    // These methods below mainly for dealing with scroll priority
+    public void OnPointerExit(PointerEventData eventData) {
+        // 0 = touch, -1 = left click mouse
+        if (eventData.pointerId == 0 || eventData.pointerId == -1) {
+            OnModulePointerExit?.Invoke(this);
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData) {
+        // 0 = touch, -1 = left click mouse
+        if (eventData.pointerId == 0 || eventData.pointerId == -1) {
+            OnModulePointerUp?.Invoke(this);
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData) {
+        // 0 = touch, -1 = left click mouse
+        if (eventData.pointerId == 0 || eventData.pointerId == -1) {
+            OnModulePointerDown?.Invoke(this);
+        }
     }
 }
 
