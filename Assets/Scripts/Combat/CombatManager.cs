@@ -23,7 +23,7 @@ public class CombatManager : MonoBehaviour
 
     [SerializeField]int workingEntities = 2;
     bool useOnCooldown = false;
-    bool resetHealth = false;
+    public bool resetHealth = false;
     void Awake() {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
     }

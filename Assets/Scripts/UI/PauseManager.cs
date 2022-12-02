@@ -101,12 +101,14 @@ public class PauseManager : MonoBehaviour
         //maybe add a sort of transition animation
         GameStateManager.Instance.SetState(GameState.Cutscene);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PlayerSavedData.ResetSavedData();
         SceneManager.LoadScene("anna_dev");
     }
     public void quitGame()
     {
         Time.timeScale = 1f;
         //maybe add a sort of transition animation
+        PlayerSavedData.ResetSavedData();
         SceneManager.LoadScene("Start");
 
     }
