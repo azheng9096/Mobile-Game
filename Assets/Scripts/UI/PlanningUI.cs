@@ -133,7 +133,7 @@ public class PlanningUI : MonoBehaviour
     }
 
     // Handle Begin Drag
-    void HandleModuleBeginDrag(PlanningUIModuleSlot moduleSlot, PointerEventData eventData) {
+    void HandleModuleBeginDrag(PlanningUIModuleSlot moduleSlot) {
         currentlyDraggedModule = moduleSlot.module;
 
         InfoDisplay.DisplayModule(moduleSlot.module);
@@ -142,7 +142,7 @@ public class PlanningUI : MonoBehaviour
     }
 
     // Handle End Drag
-    void HandleEndDrag(PlanningUIModuleSlot moduleSlot, PointerEventData eventData) {
+    void HandleEndDrag(PlanningUIModuleSlot moduleSlot) {
         dragFollower.Toggle(false);
         currentlyDraggedModule = null;
     }
