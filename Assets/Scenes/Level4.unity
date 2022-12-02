@@ -905,7 +905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 5.625588
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419205, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: _targetWidth
@@ -3343,6 +3343,10 @@ PrefabInstance:
     - target: {fileID: 1299721685193748646, guid: 64d29d76935782a4984ab79728ac433d, type: 3}
       propertyPath: m_Name
       value: Attacks
+      objectReference: {fileID: 0}
+    - target: {fileID: 7502562343963322513, guid: 64d29d76935782a4984ab79728ac433d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64d29d76935782a4984ab79728ac433d, type: 3}
