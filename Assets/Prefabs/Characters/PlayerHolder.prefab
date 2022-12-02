@@ -10275,6 +10275,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1336390060434209234, guid: bb42ede34185542459abcd14f892e09a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1864691314762826085, guid: bb42ede34185542459abcd14f892e09a, type: 3}
       propertyPath: typeName
       value: Shoot
@@ -10285,6 +10289,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4179197554797568334, guid: bb42ede34185542459abcd14f892e09a, type: 3}
       propertyPath: isInterruptible
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408340608699385137, guid: bb42ede34185542459abcd14f892e09a, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

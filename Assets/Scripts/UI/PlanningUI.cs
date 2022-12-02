@@ -303,6 +303,8 @@ public class PlanningUI : MonoBehaviour
             planningUI.SetActive(true);
             planningUI.GetComponent<Animator>().SetTrigger("Show");
             ListModules();
+        } else if (newState == GameState.Victory || newState == GameState.Cutscene) {
+            planningUI.SetActive(false);
         }
     }
 
