@@ -581,7 +581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 4.78125
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592728151454, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -837,7 +837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: fixedOnStartSet.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: unlockedModules.Array.size
