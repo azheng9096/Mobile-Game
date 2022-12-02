@@ -15,9 +15,10 @@ MonoBehaviour:
   modName: Shoot
   sprite: {fileID: 21300000, guid: acf73309c064754409c6978e118be897, type: 3}
   descriptor: Shooty shooty bang bang
-  animDelay: 0.4
+  animName: 
   type: 1
+  mode: 0
   damage: 15
-  accuracy: 75
+  accuracy: 85
   cooldown: 3
   specialEffect: 

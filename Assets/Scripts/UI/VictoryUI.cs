@@ -19,8 +19,8 @@ public class VictoryUI : MonoBehaviour
     [SerializeField] bool useFixedSet = false;
 
     // for randomly generated modules, used only if useFixedSet is false
-    [SerializeField] int minRandSalvagedModules = 1;
-    [SerializeField] int maxRandSalvagedModules = 5;
+    [SerializeField] public int minRandSalvagedModules = 1;
+    [SerializeField] public int maxRandSalvagedModules = 5;
 
 
     List<Module> salvageModules = new List<Module>();
@@ -93,7 +93,8 @@ public class VictoryUI : MonoBehaviour
 
     // --- NEXT STAGE BUTTON ---
     // Handle On Click
-    public void OnButtonClick() {
+    public void OnButtonClick()
+    {
         print("saving player progress and going to next stage");
 
         // Add salvaged modules to player deck
@@ -108,6 +109,10 @@ public class VictoryUI : MonoBehaviour
         PlayerSavedData.playerDeck = DeckManager.instance.deck;
 
         GameStateManager.Instance.SetState(GameState.Cutscene);
+        if (SceneManager.GetActiveScene().name == "Endless_Scene")
+        {
+            FindObjectOfType<EndlessHandler>().incrementScore();
+        }
         // Load next level
         SceneManager.LoadScene(nextLevelName);
     }

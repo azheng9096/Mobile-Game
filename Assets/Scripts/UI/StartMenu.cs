@@ -83,6 +83,11 @@ public class StartMenu : MonoBehaviour
     {
         SceneManager.LoadScene(levelName);
     }
+
+    public void startEndless()
+    {
+        SceneManager.LoadScene("Endless_Scene");
+    }
     public void quitGame()
     {
         Application.Quit();
