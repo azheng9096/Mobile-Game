@@ -291,14 +291,7 @@ public class PlanningUI : MonoBehaviour
 
     // --- SWITCHING TO PLANNING PHASE ---
     void OnGameStateChanged(GameState newState) {
-        if (newState == GameState.Planning
-            /*&& GameStateManager.Instance.PreviousGameState == GameState.Combat*/
-            )
-        {
-            //if (planningUI.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == )
-            //{
-
-            //}
+        if (newState == GameState.Planning) {
             print("now planning!!!!!");
             planningUI.SetActive(true);
             planningUI.GetComponent<Animator>().SetTrigger("Show");

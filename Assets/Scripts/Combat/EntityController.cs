@@ -39,7 +39,6 @@ public class EntityController : MonoBehaviour
         if (animator != null) {
             animator.SetBool("Dead", false);
         }
-        print(modules.Count);
         this.combatManager = combatManager;
         this.modules = modules;
         healthBar.maxValue = maxHealth;
