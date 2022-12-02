@@ -8,10 +8,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: a19b7e99bcc574a54af6a9c0781fe8bd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Demo1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Demo2.unity
     guid: 7c19354b93f044981b27957e546c489e
+  - enabled: 1
+    path: Assets/Scenes/anna_dev.unity
+    guid: 1863e5334ae25c0479afa5b2434b7430
+  - enabled: 0
+    path: Assets/Scenes/kevin_dev.unity
+    guid: b5e6aa9671b43e54d9c6842651068465
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 796ce49c2859dea40a57090fd21d8a69
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 55118321b9ed29f4aba8f1a5a8809676
+  - enabled: 1
+    path: Assets/Scenes/Endless_Scene.unity
+    guid: 138941705e6d3cf479975f94f05c46f8
   m_configObjects: {}
