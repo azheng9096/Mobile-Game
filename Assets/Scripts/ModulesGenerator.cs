@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ModulesGenerator : MonoBehaviour
 {
@@ -48,13 +49,46 @@ public class ModulesGenerator : MonoBehaviour
         }
     }
 
+    public IEnumerator generateWholeDeck()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        StartCoroutine(DeckManager.instance.SetDeck(new List<Module>()));
+        if (generateRandomDeckOnStart)
+        {
+            DeckManager.instance.ExtendDeck(generateRandomModules(generateRandomModuleAmountOnStart));
+        }
+        else
+        {
+            foreach (ModuleAmount m in fixedOnStartSet)
+            {
+                for (int i = 0; i < m.amount; i++)
+                {
+                    DeckManager.instance.AddModule(m.data);
+                }
+            }
+        }
+    }
+
     public List<Module> generateRandomModules(int num) {
         List<Module> ret = new List<Module>();
-
-        for (int i = 0; i < num; i++) {
-            ModuleData generatedModData = unlockedModules[Random.Range(0, unlockedModules.Length)];
-            ret.Add(new Module(generatedModData));
+        if (SceneManager.GetActiveScene().name == "Endless_Scene")
+        {
+            List<ModuleData> unlocked = FindObjectOfType<EndlessHandler>().currentlyUnlocked;
+            for (int i = 0; i < num; i++)
+            {
+                ModuleData generatedModData = unlocked[Random.Range(0, unlocked.Count)];
+                ret.Add(new Module(generatedModData));
+            }
+            
+        } else
+        {
+            for (int i = 0; i < num; i++)
+            {
+                ModuleData generatedModData = unlockedModules[Random.Range(0, unlockedModules.Length)];
+                ret.Add(new Module(generatedModData));
+            }
         }
+        
 
         return ret;
     }

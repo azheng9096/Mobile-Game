@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class CombatManager : MonoBehaviour
     Button useModuleButton;
 
     [SerializeField] public EntityController player;
-    [SerializeField] EntityController enemy;
+    [SerializeField] public EntityController enemy;
     [SerializeField] float enemyHealth = 50f;
 
     [SerializeField]int workingEntities = 2;
@@ -31,15 +31,17 @@ public class CombatManager : MonoBehaviour
     }
     
     void Start() {
-        dashButton = HUDGroup.transform.Find("DashButton").GetComponent<Button>();
-        useModuleButton = HUDGroup.transform.Find("UseModuleButton").GetComponent<Button>();
-        moduleIcons = new List<GameObject>();
-        HUDGroup.SetActive(GameStateManager.Instance.CurrentGameState == GameState.Combat);
+        if (SceneManager.GetActiveScene().name != "Endless_Scene")
+        {
+            dashButton = HUDGroup.transform.Find("DashButton").GetComponent<Button>();
+            useModuleButton = HUDGroup.transform.Find("UseModuleButton").GetComponent<Button>();
+            moduleIcons = new List<GameObject>();
+            HUDGroup.SetActive(GameStateManager.Instance.CurrentGameState == GameState.Combat);
 
-        startBattle();
+            startBattle();
 
-        StartCoroutine(StartCutscene());
-
+            StartCoroutine(StartCutscene());
+        }
         /*
         modules = new List<Module>();
         modules.Add(mod);
@@ -73,6 +75,17 @@ public class CombatManager : MonoBehaviour
         }
         */
 
+    }
+
+    public void AlternateStart()
+    {
+        dashButton = HUDGroup.transform.Find("DashButton").GetComponent<Button>();
+        useModuleButton = HUDGroup.transform.Find("UseModuleButton").GetComponent<Button>();
+        moduleIcons = new List<GameObject>();
+        HUDGroup.SetActive(GameStateManager.Instance.CurrentGameState == GameState.Combat);
+
+        startBattle();
+        StartCoroutine(StartCutscene());
     }
     
     //function for initialization tbh
@@ -224,11 +237,11 @@ public class CombatManager : MonoBehaviour
             workingEntities -= 1;
             if (status == EntityStatus.Dead) {
                 enemy.status = EntityStatus.Dead;
-                EndCombat();
+                StartCoroutine(EndCombat());
             }
         }
         if (workingEntities == 0) {
-            EndCombat();
+            StartCoroutine(EndCombat());
         }
     }
 
@@ -247,7 +260,8 @@ public class CombatManager : MonoBehaviour
             GameStateManager.Instance.SetState(GameState.Victory);
     }
 
-    void EndCombat() {
+    public IEnumerator EndCombat() {
+        yield return new WaitForSeconds(.2f);
         if (enemy != null && player != null && enemy.status != EntityStatus.Dead && player.status != EntityStatus.Dead)
         {
             print("End combat");

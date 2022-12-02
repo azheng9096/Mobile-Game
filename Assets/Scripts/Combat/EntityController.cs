@@ -14,7 +14,7 @@ public delegate void Callback();
 public class EntityController : MonoBehaviour
 {
     [SerializeField] Slider healthBar;
-    [SerializeField] Slider planningHealthBar;
+    [SerializeField] public Slider planningHealthBar;
     public CombatManager combatManager;
     List<Module> modules;
     [SerializeField]
