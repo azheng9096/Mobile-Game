@@ -59,11 +59,9 @@ public class PlanningUIModuleSlot : MonoBehaviour, IPointerClickHandler, IBeginD
 
 
     public void OnBeginDrag(PointerEventData eventData) {
-        /*
         if (!draggable) {
             return;
         }
-        */
         OnModuleBeginDrag?.Invoke(this, eventData);
     }
 
@@ -79,7 +77,7 @@ public class PlanningUIModuleSlot : MonoBehaviour, IPointerClickHandler, IBeginD
     }
 
 
-    // These methods below mainly for dealing with scroll priority
+    // These methods below mainly for dealing with scroll priority (does not need to be implemented)
     public void OnPointerExit(PointerEventData eventData) {
         // 0 = touch, -1 = left click mouse
         if (eventData.pointerId == 0 || eventData.pointerId == -1) {
