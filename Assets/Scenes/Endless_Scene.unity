@@ -1169,7 +1169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 4.78125
+      value: 6.3770814
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592722366685, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1494,22 +1494,6 @@ PrefabInstance:
     - target: {fileID: 4724956593779913712, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.000030517578
-      objectReference: {fileID: 0}
-    - target: {fileID: 4724956593779913713, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
-      propertyPath: m_Spacing.x
-      value: 13.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4724956593779913713, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
-      propertyPath: m_Spacing.y
-      value: 14.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4724956593779913713, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
-      propertyPath: m_CellSize.x
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 4724956593779913713, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
-      propertyPath: m_CellSize.y
-      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 4724956593845166800, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_SizeDelta.x
