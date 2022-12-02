@@ -354,6 +354,14 @@ PrefabInstance:
       propertyPath: nextLevelName
       value: Level3
       objectReference: {fileID: 0}
+    - target: {fileID: 2298372432622807666, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: maxRandSalvagedModules
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298372432622807666, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: minRandSalvagedModules
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2357713155554762391, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -512,7 +520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 4.25
+      value: 4.782988
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592728151454, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -769,6 +777,30 @@ PrefabInstance:
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: generateDeckOnStart
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: fixedOnStartSet.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4e9c1a33a385d104090862a041ffd34a, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 50e261f157cddb240ab8727333fe1412, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: fixedOnStartSet.Array.data[3].data
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a9afc37c8c5e8347b60a0f53db2e2eb, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: fixedOnStartSet.Array.data[3].amount
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6470994511303047240, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.x

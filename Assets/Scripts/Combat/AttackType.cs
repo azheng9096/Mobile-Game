@@ -14,6 +14,7 @@ public class AttackType : MonoBehaviour
     public AttackCallback callback;
     protected ModuleData mod;
 
+    public bool isInterruptible = false;
     protected bool isInterrupted = false;
     virtual public void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -29,14 +30,15 @@ public class AttackType : MonoBehaviour
         anim.SetTrigger("Activate");
     }
     virtual public void dealDamage() {
-        if (callback != null) {
+        if (callback != null && (isInterrupted || !isInterruptible)) {
             callback("dealDamage");
         }
     }
 
     virtual public void Interrupt() {
-        anim.SetTrigger("Interrupt");
-        spriteRenderer.enabled = false;
+        isInterrupted = true;
+        print("interrupted");
+        spriteRenderer.enabled = false; 
     }
     
     virtual public void Blocked() {

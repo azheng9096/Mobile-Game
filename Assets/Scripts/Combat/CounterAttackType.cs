@@ -9,7 +9,7 @@ public class CounterAttackType : AttackType
     public AttackType laser;
     public override void Activate(ModuleData mod, AttackCallback callback = null)
     {
-        print("OHGOEHF:OEK");
+        anim.SetBool("Interrupt", false);
         base.Activate(mod, callback);
         StartCoroutine(DelayDissolve());
     }
@@ -25,6 +25,12 @@ public class CounterAttackType : AttackType
             callback("HaltBlock");
         }
         anim.SetTrigger("Dissolve");
+    }
+
+    public override void Interrupt() {
+        anim.SetBool("Interrupt", true);
+        spriteRenderer.enabled = false;
+        laser.Interrupt();
     }
     public void ShootLaser() {
         laser.Activate(mod);

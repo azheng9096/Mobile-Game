@@ -18,7 +18,7 @@ MonoBehaviour:
   animName: 
   type: 1
   mode: 0
-  damage: 15
+  damage: 20
   accuracy: 85
   cooldown: 3
   specialEffect: 

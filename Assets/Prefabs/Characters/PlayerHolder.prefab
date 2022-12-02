@@ -10283,6 +10283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attacks
       objectReference: {fileID: 0}
+    - target: {fileID: 4179197554797568334, guid: bb42ede34185542459abcd14f892e09a, type: 3}
+      propertyPath: isInterruptible
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb42ede34185542459abcd14f892e09a, type: 3}
 --- !u!114 &731521175521289709 stripped

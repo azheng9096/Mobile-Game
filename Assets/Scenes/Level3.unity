@@ -407,6 +407,14 @@ PrefabInstance:
       propertyPath: nextLevelName
       value: Level4
       objectReference: {fileID: 0}
+    - target: {fileID: 2298372432622807666, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: maxRandSalvagedModules
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298372432622807666, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: minRandSalvagedModules
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2357713155554762391, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -573,7 +581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 5.625588
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_BackGroundColor.a
@@ -873,7 +881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: generateDeckOnStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: fixedOnStartSet.Array.size
@@ -881,16 +889,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: unlockedModules.Array.size
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: unlockedModules.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 2388c24d31d855144b663425ba3ee4a5, type: 2}
+      objectReference: {fileID: 11400000, guid: 4e9c1a33a385d104090862a041ffd34a, type: 2}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: unlockedModules.Array.data[5]
       value: 
       objectReference: {fileID: 11400000, guid: 50e261f157cddb240ab8727333fe1412, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a9afc37c8c5e8347b60a0f53db2e2eb, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: cad926ad1f222c448a0aa1b774ae6ed6, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ccd15c6a50048741b866df1074e1d0b, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 99ec0dfcfb2491c42a30627d5d2c5f93, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2388c24d31d855144b663425ba3ee4a5, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2388c24d31d855144b663425ba3ee4a5, type: 2}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: fixedOnStartSet.Array.data[3].data
       value: 

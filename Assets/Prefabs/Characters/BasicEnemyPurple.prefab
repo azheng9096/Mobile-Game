@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 3425268947820659877}
   planningHealthBar: {fileID: 0}
+  combatManager: {fileID: 0}
   attackPattern:
   - {fileID: 11400000, guid: ae0f338514450e743910234bc9b62a14, type: 2}
   - {fileID: 11400000, guid: ae0f338514450e743910234bc9b62a14, type: 2}
@@ -210,8 +211,11 @@ MonoBehaviour:
   status: 0
   TextPopUpPrefab: {fileID: 7241006826954038281, guid: 8e764b5dd4fd8994988a5f420b881465, type: 3}
   TextPopUpTarget: {fileID: 5118180060314980947}
-  animDelayMult: 1.5
   animator: {fileID: 5118180060046885691}
+  deathTime: 0.3
+  attackController: {fileID: 0}
+  droneController: {fileID: 0}
+  healController: {fileID: 0}
   curTarget: {fileID: 0}
 --- !u!95 &5118180060046885691
 Animator:
@@ -257,7 +261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5118180060198129309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.75, y: -0.49, z: 0}
+  m_LocalPosition: {x: 3.75, y: -1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
