@@ -41,8 +41,12 @@ public class EndlessHandler : MonoBehaviour
     public Color[] backgroundColors;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+        while (ModulesGenerator.instance == null || DeckManager.instance == null) {
+            yield return new WaitForSecondsRealtime(0.05f);
+        }
+        
         LoadScore();
         initializeWave();
         int amountOfModulesToGive = modsPerWave*((wave-1) / waveGroupCount) + modsPerWave;
