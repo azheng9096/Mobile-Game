@@ -9,7 +9,7 @@ public class HealController : MonoBehaviour
     public ParticleSystem[] healParticles;
     public Transform correctSpotForParticles;
     public GameObject armorPrefab;
-    private List<GameObject> armaments;
+    private List<GameObject> armaments = new List<GameObject>();
     public bool isArmored = false;
     public float damageBlocking = 0f; 
     public float armoredTimeLeft = 0f;
@@ -28,6 +28,10 @@ public class HealController : MonoBehaviour
                 isArmored = false;
                 damageBlocking = 0;
                 //delete all objects in the armaments list and clear the list
+                foreach(GameObject g in armaments)
+                {
+                    Destroy(g);
+                }
             }
         }
     }
@@ -51,12 +55,15 @@ public class HealController : MonoBehaviour
                 break;
             case 2: //armament
                 //spawn a new armor prefab and add it to the list
+                GameObject a = Instantiate(armorPrefab, transform);
+                a.transform.position = correctSpotForParticles.position;
+                armaments.Add(a);
                 //put the armor particles in the right spot
                 isArmored = true;
                 if(armoredTimeLeft<=0){
-                    armoredTimeLeft = float.Parse(mod.ModuleData.animName);
+                    armoredTimeLeft = float.Parse(mod.moduleData.animName);
                 } else { //allow the armaments to stack
-                    armoredTimeLeft += float.Parse(mod.ModuleData.animName);
+                    armoredTimeLeft += float.Parse(mod.moduleData.animName);
                 }
                 damageBlocking += mod.moduleData.damage;
                 break;

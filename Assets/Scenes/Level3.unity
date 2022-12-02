@@ -756,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: fixedOnStartSet.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: unlockedModules.Array.size
@@ -783,6 +783,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2388c24d31d855144b663425ba3ee4a5, type: 2}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: fixedOnStartSet.Array.data[6].data
+      value: 
+      objectReference: {fileID: 11400000, guid: cad926ad1f222c448a0aa1b774ae6ed6, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: fixedOnStartSet.Array.data[1].amount
       value: 5
       objectReference: {fileID: 0}
@@ -800,6 +804,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: fixedOnStartSet.Array.data[5].amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: fixedOnStartSet.Array.data[6].amount
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6470994511303047240, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
@@ -1862,6 +1870,7 @@ MonoBehaviour:
   deathTime: 1.5
   attackController: {fileID: 1145037999}
   droneController: {fileID: 678263381}
+  healController: {fileID: 0}
   curTarget: {fileID: 0}
 --- !u!1 &6103432190626898821
 GameObject:

@@ -248,24 +248,24 @@ public class EntityController : MonoBehaviour
     }
 
     IEnumerator TakeDamage_Routine(float damage) {
-        if (animator != null) {
+        float actualDamage = damage;
+        if (healController != null && healController.isArmored)
+        {
+            actualDamage = damage - healController.damageBlocking;
+            if (actualDamage < 0)
+            {
+                actualDamage = 0;
+                CreateTextPopUp("Negated", new Color(255, 130, 140, 255));
+            }
+        }
+        if (animator != null && actualDamage != 0) {
             animator.SetTrigger("Hurt");
             if (attackController != null) {
                 attackController.EndActivate();
             }
         }
-        if(healController.isArmored){
-            float actualDamage = damage - healController.damageBlocking;
-            if(actualDamage < 0){
-                actualDamage = 0;
-                CreateTextPopUp("Negated", new Color(255, 130, 140, 255));
-            }
-            healthBar.value -= actualDamage;
-            planningHealthBar.value -= actualDamage;
-        } else {
-            healthBar.value -= damage;
-            planningHealthBar.value -= damage;
-        }
+        healthBar.value -= actualDamage;
+        planningHealthBar.value -= actualDamage;
         if (healthBar.value <= 0) {
             StartCoroutine(Die());
         }
