@@ -115,15 +115,19 @@ public class EntityController : MonoBehaviour
 
     public void HealLifePoints(float hp){
         healthBar.value += hp;
+        
         if(healthBar.value > healthBar.maxValue){
             healthBar.value = healthBar.maxValue;
         }
+        planningHealthBar.value = healthBar.value;
     }
 
     public void IncreaseMaxLifePoints(float hp, bool fullHeal){
         healthBar.maxValue += hp;
-        if(fullHeal){
+        planningHealthBar.maxValue = healthBar.maxValue;
+        if (fullHeal){
             healthBar.value = healthBar.maxValue;
+            planningHealthBar.value = healthBar.maxValue;
         }
     }
 
