@@ -423,6 +423,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2298372431763151464, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -14.202744
+      objectReference: {fileID: 0}
     - target: {fileID: 2298372432622807666, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: player
       value: 
@@ -589,7 +593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 5.625588
+      value: 5.626577
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419205, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: _targetWidth
@@ -843,6 +847,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1244609997}
+    - target: {fileID: 4724956593845166801, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: m_ScrollSensitivity
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: generateDeckOnStart
       value: 1

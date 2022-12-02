@@ -103,7 +103,6 @@ public class CombatManager : MonoBehaviour
             workingEntities += 1;
             //player.Init(this, modules, 50f, 50f);
             player.Init(this, modules, PlayerSavedData.maxHP, PlayerSavedData.HP);
-            print("DEBUGDEBUGDEBUG player here");
         }
         if (enemy != null)
         {
@@ -195,10 +194,16 @@ public class CombatManager : MonoBehaviour
         dashButton.interactable = true;
     }
     public void Dash() {
+        if (player.status == EntityStatus.Dead) {
+            return;
+        }
         dashButton.interactable = false;
         player.Dash(DashCallback);
     }
     public void UseCard() {
+        if (player.status == EntityStatus.Dead) {
+            return;
+        }
         player.UseModule(enemy);
         Destroy(moduleIcons[moduleIcons.Count - 1]);
         moduleIcons.RemoveAt(moduleIcons.Count - 1);
