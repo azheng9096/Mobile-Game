@@ -18,7 +18,7 @@ MonoBehaviour:
   animName: Melee
   type: 0
   mode: 0
-  damage: 10000
-  accuracy: 100
+  damage: 10
+  accuracy: 75
   cooldown: 1
   specialEffect: 
