@@ -5045,6 +5045,7 @@ MonoBehaviour:
   attackController: {fileID: 731521175521289709}
   droneController: {fileID: 1357960483467216852}
   healController: {fileID: 1417079364217710089}
+  doNotDestroy: 0
   curTarget: {fileID: 0}
 --- !u!95 &3960435548303486761
 Animator:
@@ -10017,6 +10018,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3960435548303486775}
     m_Modifications:
+    - target: {fileID: 1729767280, guid: 83f9922ca925a3949b56623d79088bf6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607086073920475003, guid: 83f9922ca925a3949b56623d79088bf6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2607086073943449738, guid: 83f9922ca925a3949b56623d79088bf6, type: 3}
       propertyPath: m_Name
       value: DroneController
@@ -10063,6 +10072,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2607086073943449739, guid: 83f9922ca925a3949b56623d79088bf6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607086074595879478, guid: 83f9922ca925a3949b56623d79088bf6, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
