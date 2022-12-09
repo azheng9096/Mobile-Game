@@ -384,7 +384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2298372431763151464, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -14.202759
+      value: -14.202744
       objectReference: {fileID: 0}
     - target: {fileID: 2298372431867459453, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -828,7 +828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 7.5024486
+      value: 5.6233654
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419205, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: _targetWidth
@@ -1104,7 +1104,7 @@ PrefabInstance:
       objectReference: {fileID: 1043001003}
     - target: {fileID: 4724956593771551146, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: enemyHealth
-      value: 100
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 4968171950862786247, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1252,7 +1252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: generateDeckOnStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: fixedOnStartSet.Array.size
@@ -2527,6 +2527,10 @@ PrefabInstance:
       propertyPath: planningHealthBar
       value: 
       objectReference: {fileID: 518611879}
+    - target: {fileID: 1178864123336561911, guid: b002e1ce7f485dd4390401c6b9b7b8c4, type: 3}
+      propertyPath: attackPattern.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 99ec0dfcfb2491c42a30627d5d2c5f93, type: 2}
     - target: {fileID: 1178864124627540268, guid: b002e1ce7f485dd4390401c6b9b7b8c4, type: 3}
       propertyPath: m_Name
       value: Doc
@@ -2574,6 +2578,26 @@ PrefabInstance:
     - target: {fileID: 1178864124627540269, guid: b002e1ce7f485dd4390401c6b9b7b8c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294703008269022036, guid: b002e1ce7f485dd4390401c6b9b7b8c4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294703008269022036, guid: b002e1ce7f485dd4390401c6b9b7b8c4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294703009603120593, guid: b002e1ce7f485dd4390401c6b9b7b8c4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294703009603120593, guid: b002e1ce7f485dd4390401c6b9b7b8c4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294703009603120593, guid: b002e1ce7f485dd4390401c6b9b7b8c4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8551593383184079846, guid: b002e1ce7f485dd4390401c6b9b7b8c4, type: 3}
       propertyPath: m_AnchorMax.x

@@ -607,6 +607,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2298372431763151464, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -14.202744
+      objectReference: {fileID: 0}
     - target: {fileID: 2298372431867459453, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1169,7 +1173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 6.3770814
+      value: 4.7798605
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592722366685, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2472,7 +2476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave: 1
   maxWaveCount: 1
-  modsPerWave: 5
+  modsPerWave: 10
   waveGroupCount: 3
   waveText: {fileID: 2144762365}
   maxWaveText: {fileID: 507496584}
@@ -2486,34 +2490,20 @@ MonoBehaviour:
     amount: 1
   - data: {fileID: 11400000, guid: 50e261f157cddb240ab8727333fe1412, type: 2}
     amount: 2
-  - data: {fileID: 11400000, guid: 50e261f157cddb240ab8727333fe1412, type: 2}
-    amount: 3
   - data: {fileID: 11400000, guid: 4e9c1a33a385d104090862a041ffd34a, type: 2}
     amount: 3
   - data: {fileID: 11400000, guid: c24c878359f84294e8c48a9876eeba15, type: 2}
     amount: 4
-  - data: {fileID: 11400000, guid: c24c878359f84294e8c48a9876eeba15, type: 2}
-    amount: 5
   - data: {fileID: 11400000, guid: 8a9afc37c8c5e8347b60a0f53db2e2eb, type: 2}
-    amount: 6
-  - data: {fileID: 11400000, guid: 4e9c1a33a385d104090862a041ffd34a, type: 2}
-    amount: 6
-  - data: {fileID: 11400000, guid: c24c878359f84294e8c48a9876eeba15, type: 2}
-    amount: 7
+    amount: 5
   - data: {fileID: 11400000, guid: cad926ad1f222c448a0aa1b774ae6ed6, type: 2}
+    amount: 6
+  - data: {fileID: 11400000, guid: 99ec0dfcfb2491c42a30627d5d2c5f93, type: 2}
+    amount: 7
+  - data: {fileID: 11400000, guid: 2388c24d31d855144b663425ba3ee4a5, type: 2}
     amount: 8
-  - data: {fileID: 11400000, guid: 99ec0dfcfb2491c42a30627d5d2c5f93, type: 2}
-    amount: 9
-  - data: {fileID: 11400000, guid: 2388c24d31d855144b663425ba3ee4a5, type: 2}
-    amount: 10
   - data: {fileID: 11400000, guid: 9ccd15c6a50048741b866df1074e1d0b, type: 2}
-    amount: 11
-  - data: {fileID: 11400000, guid: 99ec0dfcfb2491c42a30627d5d2c5f93, type: 2}
-    amount: 12
-  - data: {fileID: 11400000, guid: 2388c24d31d855144b663425ba3ee4a5, type: 2}
-    amount: 13
-  - data: {fileID: 11400000, guid: 2388c24d31d855144b663425ba3ee4a5, type: 2}
-    amount: 14
+    amount: 9
   planningHealthBar: {fileID: 689354149}
   cm: {fileID: 1980386505}
   enemyPrefabs:
