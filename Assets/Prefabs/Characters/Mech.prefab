@@ -509,7 +509,7 @@ MonoBehaviour:
   healController: {fileID: 0}
   doNotDestroy: 0
   curTarget: {fileID: 0}
-  hurtSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: c18a6c006daf5fd45b1edd57f5ee7eaa, type: 3}
   blockSound: {fileID: 0}
   dodgeSound: {fileID: 0}
   deathSound: {fileID: 0}

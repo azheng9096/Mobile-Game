@@ -75,6 +75,29 @@ public class EntityController : MonoBehaviour
         status = EntityStatus.Idle;
     }
     
+    // void Update() {
+    //     #if UNITY_EDITOR
+    //     if (Input.GetKeyDown(KeyCode.Z)) {
+    //         combatManager.UpdateStatus(this, EntityStatus.Empty);
+    //         if (this != combatManager.player) {
+    //             StartCoroutine(DelayDeath(1.5f));
+    //         }
+    //     } else if (Input.GetKeyDown(KeyCode.X)) {
+    //         combatManager.UpdateStatus(this, EntityStatus.Empty);
+    //         if (this == combatManager.player) {
+    //             StartCoroutine(DelayDeath(1.5f));
+    //         }
+    //     }
+    //     #endif
+    // }
+
+    // #if UNITY_EDITOR
+    // IEnumerator DelayDeath(float time) {
+    //     yield return new WaitForSeconds(time);
+    //     TakeDamage(1000f);
+    // }
+    // #endif
+
     public void Dash(Callback callback) {
         if (dashing) {
             return;
@@ -112,7 +135,6 @@ public class EntityController : MonoBehaviour
         }
         switch(clip) {
             case "start":
-                print("PLAY START");
                 audioSource.PlayOneShot(curMod.moduleData.startSound);
                 break;
             case "end":

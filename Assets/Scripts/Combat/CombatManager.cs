@@ -24,6 +24,9 @@ public class CombatManager : MonoBehaviour
     [SerializeField]int workingEntities = 2;
     bool useOnCooldown = false;
     public bool resetHealth = false;
+
+    int updateVersion = 0;
+
     void Awake() {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
     }
@@ -236,21 +239,14 @@ public class CombatManager : MonoBehaviour
         }
     }
     public void UpdateStatus(EntityController controller, EntityStatus status) {
-        if (controller == player) {
-            workingEntities -= 1;
-            if (status == EntityStatus.Dead) {
-                print("You died");
-            }
-            useModuleButton.interactable = false;
-        } else if (controller == enemy) {
-            workingEntities -= 1;
-            if (status == EntityStatus.Dead) {
-                enemy.status = EntityStatus.Dead;
+        workingEntities -= 1;
+        useModuleButton.interactable = false;
+        if (workingEntities == 0) {
+            if (status == EntityStatus.Empty) {
+                StartCoroutine(EndCombat(2f));
+            } else {
                 StartCoroutine(EndCombat());
             }
-        }
-        if (workingEntities == 0) {
-            StartCoroutine(EndCombat());
         }
     }
 
@@ -260,34 +256,27 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         GameStateManager.Instance.SetState(GameState.Planning);
     }
-    public IEnumerator EndCutscene()
-    {
-        GameStateManager.Instance.SetState(GameState.Cutscene);
-        yield return new WaitForSeconds(2f);
-
-        if(player.status!=EntityStatus.Dead)
-            GameStateManager.Instance.SetState(GameState.Victory);
-    }
-
-    public IEnumerator EndCombat() {
-        yield return new WaitForSeconds(.2f);
-        if (enemy != null && player != null && enemy.status != EntityStatus.Dead && player.status != EntityStatus.Dead)
-        {
-            print("End combat");
-            //hide the two buttons
+    public IEnumerator EndCombat(float time = 0.2f) {
+        int currVersion = updateVersion;
+        yield return new WaitForSeconds(time);
+        if (currVersion == updateVersion) {
             dashButton.interactable = false;
             useModuleButton.interactable = false;
-            GameStateManager.Instance.SetState(GameState.Planning);
-            print("SPECIALENDCOMBAT");
-        } else
-        {
-            print("Endscene!");
-            //hide the two buttons
-            dashButton.interactable = false;
-            useModuleButton.interactable = false;
-            StartCoroutine(EndCutscene());
+            if (enemy != null && player != null && enemy.status != EntityStatus.Dead && player.status != EntityStatus.Dead)
+            {
+                //hide the two buttons
+                GameStateManager.Instance.SetState(GameState.Planning);
+                print("Show planning screen");
+            } else {
+                print("Show victory screen in 2 seconds");
+                //hide the two buttons
+                GameStateManager.Instance.SetState(GameState.Cutscene);
+                yield return new WaitForSeconds(2f);
+                
+                if(player.status!=EntityStatus.Dead && (currVersion == updateVersion))
+                    GameStateManager.Instance.SetState(GameState.Victory);
+            }
         }
-        
     }
 
     public void StartCombat() {
