@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.EventSystems;
+
 public class PlanningUI : MonoBehaviour
 {
     [SerializeField] GameObject planningUI;
@@ -79,7 +81,7 @@ public class PlanningUI : MonoBehaviour
             slot.Set(module);
 
             slot.OnModuleClicked += HandleModuleClick;
-            slot.OnModuleBeginDrag += HandleModuleSelection;
+            slot.OnModuleBeginDrag += HandleModuleBeginDrag;
             slot.OnModuleEndDrag += HandleEndDrag;
 
             moduleSlotsCurrentState.Add(module, slot);
@@ -98,23 +100,6 @@ public class PlanningUI : MonoBehaviour
                 selectionCurrentState.Add(slot.module, slot);
             }
         }
-
-        /*
-        foreach (Transform child in ModuleSlots) {
-            PlanningUIModuleSlot slot = child.gameObject.GetComponent<PlanningUIModuleSlot>();
-            if (!slot.module.planningAvailable) {
-                slot.Disable("Unavailable");
-                continue;
-            }
-
-            if (selection.Contains(slot.module)) {
-                slot.Disable("Selected");
-                continue;
-            }
-
-            slot.Enable();
-        }
-        */
 
         foreach (Module module in moduleSlotsCurrentState.Keys) {
             PlanningUIModuleSlot slot = moduleSlotsCurrentState[module];
@@ -148,7 +133,7 @@ public class PlanningUI : MonoBehaviour
     }
 
     // Handle Begin Drag
-    void HandleModuleSelection(PlanningUIModuleSlot moduleSlot) {
+    void HandleModuleBeginDrag(PlanningUIModuleSlot moduleSlot) {
         currentlyDraggedModule = moduleSlot.module;
 
         InfoDisplay.DisplayModule(moduleSlot.module);
@@ -173,13 +158,15 @@ public class PlanningUI : MonoBehaviour
 
     // Handle Begin Drag
     void HandleModuleSelection(PlanningUISelectionSlot selectionSlot) {
-        currentlyDraggedModule = selectionSlot.module;
+        if (selectionSlot.module.planningAvailable) {
+            currentlyDraggedModule = selectionSlot.module;
 
-        InfoDisplay.DisplayModule(selectionSlot.module);
-        dragFollower.Toggle(true);
-        dragFollower.Set(selectionSlot.module);
+            InfoDisplay.DisplayModule(selectionSlot.module);
+            dragFollower.Toggle(true);
+            dragFollower.Set(selectionSlot.module);
 
-        ClearSelection.Toggle(true);
+            ClearSelection.Toggle(true);
+        }
     }
 
     // Handle End Drag
@@ -196,8 +183,7 @@ public class PlanningUI : MonoBehaviour
             return;
         }
 
-        // TODO: need to handle swapping if needed
-        // Handle: 
+        // Handle swapping: 
             // Modules -> Empty Selection
             // Modules -> Existing Selection
             // Selection -> Empty Selection
