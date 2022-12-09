@@ -4600,8 +4600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aud: {fileID: 2578950775174861892}
-  enter: {fileID: 8300000, guid: 763434e0890088c4881daa146d3d51ab, type: 3}
-  exit: {fileID: 8300000, guid: 3286498dd600e9447bd4e12dd14b7a27, type: 3}
+  enter: {fileID: 8300000, guid: 5b15340894ed15e4ea1f289764111ad9, type: 3}
+  exit: {fileID: 8300000, guid: d40a4a1751a1925479e4600ee8e2feeb, type: 3}
 --- !u!82 &2578950775174861892
 AudioSource:
   m_ObjectHideFlags: 0
