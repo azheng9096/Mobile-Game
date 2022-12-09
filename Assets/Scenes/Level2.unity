@@ -360,11 +360,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2298372432622807666, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: maxRandSalvagedModules
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2298372432622807666, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: minRandSalvagedModules
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2357713155554762391, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -524,7 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592496419200, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: orthographic size
-      value: 4.7825904
+      value: 4.7798605
       objectReference: {fileID: 0}
     - target: {fileID: 4724956592728151454, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -788,7 +788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: unlockedModules.Array.size
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: unlockedModules.Array.data[4]
@@ -798,6 +798,26 @@ PrefabInstance:
       propertyPath: unlockedModules.Array.data[5]
       value: 
       objectReference: {fileID: 11400000, guid: 50e261f157cddb240ab8727333fe1412, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a9afc37c8c5e8347b60a0f53db2e2eb, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: cad926ad1f222c448a0aa1b774ae6ed6, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 99ec0dfcfb2491c42a30627d5d2c5f93, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2388c24d31d855144b663425ba3ee4a5, type: 2}
+    - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
+      propertyPath: unlockedModules.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2388c24d31d855144b663425ba3ee4a5, type: 2}
     - target: {fileID: 5782542502529514378, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: fixedOnStartSet.Array.data[3].data
       value: 
@@ -1257,6 +1277,18 @@ PrefabInstance:
       propertyPath: planningHealthBar
       value: 
       objectReference: {fileID: 1736519478}
+    - target: {fileID: 1033791268516682776, guid: 6818ee69acce50c418761d86d4daf244, type: 3}
+      propertyPath: attackPattern.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 50e261f157cddb240ab8727333fe1412, type: 2}
+    - target: {fileID: 1033791268516682776, guid: 6818ee69acce50c418761d86d4daf244, type: 3}
+      propertyPath: attackPattern.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c24c878359f84294e8c48a9876eeba15, type: 2}
+    - target: {fileID: 1033791268516682776, guid: 6818ee69acce50c418761d86d4daf244, type: 3}
+      propertyPath: attackPattern.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae0f338514450e743910234bc9b62a14, type: 2}
     - target: {fileID: 7541759012916646665, guid: 6818ee69acce50c418761d86d4daf244, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

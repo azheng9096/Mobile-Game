@@ -1104,7 +1104,7 @@ PrefabInstance:
       objectReference: {fileID: 1043001003}
     - target: {fileID: 4724956593771551146, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: enemyHealth
-      value: 75
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4968171950862786247, guid: f097df3d198cf404f9c5ebb5a800dd5e, type: 3}
       propertyPath: m_AnchorMax.y
