@@ -9,10 +9,14 @@ public class DroneController : MonoBehaviour
     private Module curMod;
     public Animator anim;
 
+    public AudioClip laserShootSound;
+
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -61,5 +65,18 @@ public class DroneController : MonoBehaviour
         {
             target.HandleMiss();
         }
+    }
+
+    private void PlaySound(string soundName) {
+        AudioClip clip = null;
+        switch (soundName) {
+            case "laserShootSound":
+                clip = laserShootSound;
+                break;
+            default:
+                break;
+        }
+        if (clip != null && audioSource != null)
+            audioSource.PlayOneShot(clip);
     }
 }

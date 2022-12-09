@@ -15,9 +15,13 @@ MonoBehaviour:
   modName: Shield
   sprite: {fileID: 21300000, guid: 73885ce8abee9cf498ede2fb44caa907, type: 3}
   descriptor: 
-  animDelay: 0.2
+  animName: 
   type: 2
+  mode: 0
   damage: 10
   accuracy: 75
   cooldown: 1
   specialEffect: block
+  sound: {fileID: 0}
+  startSound: {fileID: 8300000, guid: 032590af108a912489f87d63cc8495ee, type: 3}
+  endSound: {fileID: 8300000, guid: 097c48a1e69538b4296257e202f3d771, type: 3}

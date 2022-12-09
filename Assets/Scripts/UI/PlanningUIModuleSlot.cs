@@ -17,7 +17,7 @@ public class PlanningUIModuleSlot : MonoBehaviour, IPointerClickHandler, IBeginD
     [HideInInspector] public Module module;
 
 
-    public event Action<PlanningUIModuleSlot> OnModuleClicked, OnModuleBeginDrag, OnModuleEndDrag;
+    public event Action<PlanningUIModuleSlot> OnModuleClicked, OnModuleBeginDrag, OnModuleEndDrag, OnModuleOnDrag;
 
     Image raycastImage;
     bool draggable = true;

@@ -36,7 +36,7 @@ public class ModulesGenerator : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
 
         if (generateDeckOnStart) {
-            StartCoroutine(DeckManager.instance.SetDeck(new List<Module>()));
+            DeckManager.instance.SetDeck(new List<Module>());
             if (generateRandomDeckOnStart) {
                 DeckManager.instance.ExtendDeck(generateRandomModules(generateRandomModuleAmountOnStart));
             } else {
@@ -51,8 +51,11 @@ public class ModulesGenerator : MonoBehaviour
 
     public IEnumerator generateWholeDeck()
     {
-        yield return new WaitForSecondsRealtime(1f);
-        StartCoroutine(DeckManager.instance.SetDeck(new List<Module>()));
+        while (DeckManager.instance == null)
+        {
+            yield return new WaitForSeconds(0.05f);
+        }
+        DeckManager.instance.SetDeck(new List<Module>());
         if (generateRandomDeckOnStart)
         {
             DeckManager.instance.ExtendDeck(generateRandomModules(generateRandomModuleAmountOnStart));

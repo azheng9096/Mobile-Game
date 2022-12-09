@@ -31,15 +31,21 @@ public class EntityController : MonoBehaviour
     [SerializeField] AttackController attackController;
     [SerializeField] DroneController droneController;
     [SerializeField] HealController healController;
+    [SerializeField] bool doNotDestroy = false;
 
     public EntityController curTarget = null;
     public Module curMod = null;
+
+    private AudioSource audioSource;
+    public AudioClip hurtSound;
+    public AudioClip blockSound;
+    public AudioClip dodgeSound;
+    public AudioClip deathSound;
 
     public void Init(CombatManager combatManager, List<Module> modules, float maxHealth = 100f, float health = 100f) {
         if (animator != null) {
             animator.SetBool("Dead", false);
         }
-        print(modules.Count);
         this.combatManager = combatManager;
         this.modules = modules;
         healthBar.maxValue = maxHealth;
@@ -65,9 +71,35 @@ public class EntityController : MonoBehaviour
     }
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         status = EntityStatus.Idle;
     }
     
+    void Update() {
+        #if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Z)) {
+            combatManager.UpdateStatus(this, EntityStatus.Empty);
+            if (this != combatManager.player) {
+                StartCoroutine(DelayDeath(1f));
+            }
+        } else if (Input.GetKeyDown(KeyCode.X)) {
+            combatManager.UpdateStatus(this, EntityStatus.Empty);
+            // if (this == combatManager.player) {
+            //     StartCoroutine(DelayDeath(1.5f));
+            // }
+        } else if (Input.GetKeyDown(KeyCode.C)) {
+            TakeDamage(30f);
+        }
+        #endif
+    }
+
+    #if UNITY_EDITOR
+    IEnumerator DelayDeath(float time) {
+        yield return new WaitForSeconds(time);
+        TakeDamage(1000f);
+    }
+    #endif
+
     public void Dash(Callback callback) {
         if (dashing) {
             return;
@@ -94,6 +126,23 @@ public class EntityController : MonoBehaviour
         modules.RemoveAt(modules.Count - 1);
         StartCoroutine(UseModule_Routine(mod, target));
         print(modules.Count);
+    }
+
+    public void PlaySound(string clip) {
+        if (curMod == null || audioSource == null) {
+            return;
+        }
+        switch(clip) {
+            case "start":
+                audioSource.PlayOneShot(curMod.moduleData.startSound);
+                break;
+            case "end":
+                audioSource.PlayOneShot(curMod.moduleData.endSound);
+                break;
+            case "":
+                audioSource.PlayOneShot(curMod.moduleData.sound);
+                break;
+        }
     }
 
     public void dealDamage(){
@@ -156,9 +205,13 @@ public class EntityController : MonoBehaviour
                     if (animator != null) {
                         animator.SetBool("Blocking", true);
                     }
+                    curMod = mod;
                     blocking = true;
-                    yield return new WaitForSeconds(1.5f);
+                    yield return new WaitForSeconds(1.0f);
+                    audioSource.PlayOneShot(mod.moduleData.endSound);
+                    yield return new WaitForSeconds(0.5f);
                     blocking = false;
+                    curMod = null;
                     if (animator != null) {
                         animator.SetBool("Blocking", false);
                     }
@@ -251,6 +304,7 @@ public class EntityController : MonoBehaviour
             print("dodged");
             CreateTextPopUp("Dodged", new Color(255, 130, 140, 255));
         } else if (blocking) {
+            PlaySound(blockSound);
             StartCoroutine(FindObjectOfType<CameraShaker>().Shake(.1f, .1f));
             print("blocked");
             CreateTextPopUp("Blocked", new Color(255, 130, 140, 255));
@@ -258,6 +312,7 @@ public class EntityController : MonoBehaviour
                 attackController.Blocked();
             }
         } else {
+            PlaySound(hurtSound);
             StartCoroutine(FindObjectOfType<CameraShaker>().Shake(.1f, .3f));
             StartCoroutine(TakeDamage_Routine(damage));
         }
@@ -305,6 +360,7 @@ public class EntityController : MonoBehaviour
         UpdateEntityStatus();
     }
     IEnumerator Die() {
+        PlaySound(deathSound);
         if (animator != null) {
             animator.SetBool("Dead", true);
         }
@@ -318,6 +374,9 @@ public class EntityController : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         UpdateEntityStatus();
+        if (doNotDestroy) {
+            yield return new WaitForSeconds(5f);
+        }
         Destroy(gameObject);
     }
 
@@ -326,7 +385,6 @@ public class EntityController : MonoBehaviour
             status = EntityStatus.Dead;
         } else if (modules.Count == 0) {
             status = EntityStatus.Empty;
-            print("DEBUGDEBUGDEBUG empty");
         } else {
             status = EntityStatus.Active;
         }
@@ -340,5 +398,12 @@ public class EntityController : MonoBehaviour
 
     public float GetEntityMaxHP() {
         return healthBar.maxValue;
+    }
+
+    private void PlaySound(AudioClip clip) {
+        print(clip);
+        print(audioSource);
+        if (clip != null && audioSource != null)
+            audioSource.PlayOneShot(clip);
     }
 }

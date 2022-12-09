@@ -23,7 +23,7 @@ public class DeckManager : MonoBehaviour
     void Start() {
         // Load deck from saved deck
         //yield return new WaitForSecondsRealtime(1f);
-        StartCoroutine(SetDeck(PlayerSavedData.playerDeck));
+        SetDeck(PlayerSavedData.playerDeck);
     }
 
     public IEnumerator checkForGeneration()
@@ -52,7 +52,6 @@ public class DeckManager : MonoBehaviour
 
     public void AddModule(ModuleData moduleData) {
         deck.Add(new Module(moduleData));
-
         SortByDefault();
         DeckChangedCallback.Invoke();
     }
@@ -77,11 +76,10 @@ public class DeckManager : MonoBehaviour
     }
 
 
-    public IEnumerator SetDeck(List<Module> deck) {
+    public void SetDeck(List<Module> deck) {
         this.deck = deck;
         SortByDefault();
-        yield return new WaitForSeconds(1f);
-        DeckChangedCallback.Invoke();
+        DeckChangedCallback?.Invoke();
     }
 
 

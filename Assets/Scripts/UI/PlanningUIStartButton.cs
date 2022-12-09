@@ -17,6 +17,8 @@ public class PlanningUIStartButton : MonoBehaviour
     }
 
     public void SetInteractable(bool val) {
+        if (button == null)
+            return;
         if (val) {
             button.interactable = true;
             text.color = Color.white;

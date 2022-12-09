@@ -11,6 +11,7 @@ public class AttackController : MonoBehaviour
 
     protected ModuleData mod;
 
+
     virtual public void Start()
     {
         attackTypeDict = new Dictionary<string, AttackType>();
