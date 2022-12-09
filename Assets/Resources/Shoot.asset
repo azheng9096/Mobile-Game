@@ -22,3 +22,6 @@ MonoBehaviour:
   accuracy: 85
   cooldown: 3
   specialEffect: 
+  sound: {fileID: 8300000, guid: 7d25247a02378e84d8b929596607fe78, type: 3}
+  startSound: {fileID: 0}
+  endSound: {fileID: 0}

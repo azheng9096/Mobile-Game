@@ -17,6 +17,10 @@ public class ModuleData : ScriptableObject
     public float cooldown;
     public string specialEffect;
 
+    public AudioClip sound;
+    public AudioClip startSound;
+    public AudioClip endSound;
+
     public string GetModuleType() {
         switch(type) {
             case ModuleType.Melee:
