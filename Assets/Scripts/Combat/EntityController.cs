@@ -75,28 +75,30 @@ public class EntityController : MonoBehaviour
         status = EntityStatus.Idle;
     }
     
-    // void Update() {
-    //     #if UNITY_EDITOR
-    //     if (Input.GetKeyDown(KeyCode.Z)) {
-    //         combatManager.UpdateStatus(this, EntityStatus.Empty);
-    //         if (this != combatManager.player) {
-    //             StartCoroutine(DelayDeath(1.5f));
-    //         }
-    //     } else if (Input.GetKeyDown(KeyCode.X)) {
-    //         combatManager.UpdateStatus(this, EntityStatus.Empty);
-    //         if (this == combatManager.player) {
-    //             StartCoroutine(DelayDeath(1.5f));
-    //         }
-    //     }
-    //     #endif
-    // }
+    void Update() {
+        #if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Z)) {
+            combatManager.UpdateStatus(this, EntityStatus.Empty);
+            if (this != combatManager.player) {
+                StartCoroutine(DelayDeath(1f));
+            }
+        } else if (Input.GetKeyDown(KeyCode.X)) {
+            combatManager.UpdateStatus(this, EntityStatus.Empty);
+            // if (this == combatManager.player) {
+            //     StartCoroutine(DelayDeath(1.5f));
+            // }
+        } else if (Input.GetKeyDown(KeyCode.C)) {
+            TakeDamage(30f);
+        }
+        #endif
+    }
 
-    // #if UNITY_EDITOR
-    // IEnumerator DelayDeath(float time) {
-    //     yield return new WaitForSeconds(time);
-    //     TakeDamage(1000f);
-    // }
-    // #endif
+    #if UNITY_EDITOR
+    IEnumerator DelayDeath(float time) {
+        yield return new WaitForSeconds(time);
+        TakeDamage(1000f);
+    }
+    #endif
 
     public void Dash(Callback callback) {
         if (dashing) {
@@ -127,9 +129,6 @@ public class EntityController : MonoBehaviour
     }
 
     public void PlaySound(string clip) {
-        print("PLAY " + clip);
-        print(curMod);
-        print(audioSource);
         if (curMod == null || audioSource == null) {
             return;
         }
@@ -361,6 +360,7 @@ public class EntityController : MonoBehaviour
         UpdateEntityStatus();
     }
     IEnumerator Die() {
+        PlaySound(deathSound);
         if (animator != null) {
             animator.SetBool("Dead", true);
         }
@@ -385,7 +385,6 @@ public class EntityController : MonoBehaviour
             status = EntityStatus.Dead;
         } else if (modules.Count == 0) {
             status = EntityStatus.Empty;
-            print("DEBUGDEBUGDEBUG empty");
         } else {
             status = EntityStatus.Active;
         }

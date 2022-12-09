@@ -286,7 +286,7 @@ MonoBehaviour:
   hurtSound: {fileID: 8300000, guid: c18a6c006daf5fd45b1edd57f5ee7eaa, type: 3}
   blockSound: {fileID: 0}
   dodgeSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: e2e8b6fb8cce9084b83d4ed356d9970e, type: 3}
 --- !u!95 &1033791268516682853
 Animator:
   serializedVersion: 4
@@ -607,6 +607,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5287135854106534430}
     m_Modifications:
+    - target: {fileID: 2607086073943449737, guid: 83f9922ca925a3949b56623d79088bf6, type: 3}
+      propertyPath: laserShootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 08b0eeb9f8aa54a43b9d3f61eac85ed9, type: 3}
     - target: {fileID: 2607086073943449738, guid: 83f9922ca925a3949b56623d79088bf6, type: 3}
       propertyPath: m_Name
       value: DroneController

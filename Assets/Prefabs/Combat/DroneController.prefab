@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 2607086073943449736}
-  laserShootSound: {fileID: 0}
+  laserShootSound: {fileID: 8300000, guid: 08b0eeb9f8aa54a43b9d3f61eac85ed9, type: 3}
 --- !u!82 &8768362674694302986
 AudioSource:
   m_ObjectHideFlags: 0

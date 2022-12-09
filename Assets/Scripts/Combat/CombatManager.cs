@@ -266,9 +266,7 @@ public class CombatManager : MonoBehaviour
             {
                 //hide the two buttons
                 GameStateManager.Instance.SetState(GameState.Planning);
-                print("Show planning screen");
             } else {
-                print("Show victory screen in 2 seconds");
                 //hide the two buttons
                 GameStateManager.Instance.SetState(GameState.Cutscene);
                 yield return new WaitForSeconds(2f);

@@ -34,7 +34,6 @@ public class DroneController : MonoBehaviour
         {
             case 0:
                 anim.SetTrigger("A");
-                PlaySound(laserShootSound);
                 break;
             case 1:
                 anim.SetTrigger("B");
@@ -68,7 +67,15 @@ public class DroneController : MonoBehaviour
         }
     }
 
-    private void PlaySound(AudioClip clip) {
+    private void PlaySound(string soundName) {
+        AudioClip clip = null;
+        switch (soundName) {
+            case "laserShootSound":
+                clip = laserShootSound;
+                break;
+            default:
+                break;
+        }
         if (clip != null && audioSource != null)
             audioSource.PlayOneShot(clip);
     }

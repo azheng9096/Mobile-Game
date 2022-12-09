@@ -222,7 +222,7 @@ MonoBehaviour:
   hurtSound: {fileID: 8300000, guid: c18a6c006daf5fd45b1edd57f5ee7eaa, type: 3}
   blockSound: {fileID: 0}
   dodgeSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: e2e8b6fb8cce9084b83d4ed356d9970e, type: 3}
 --- !u!95 &5118180060046885691
 Animator:
   serializedVersion: 4
